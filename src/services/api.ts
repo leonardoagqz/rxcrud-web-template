@@ -8,7 +8,7 @@ export interface ApiError {
 const api = axios.create({
     baseURL: process.env.REACT_APP_API_URL
         ? process.env.REACT_APP_API_URL
-        : 'https://rxcrud-api.herokuapp.com/'
+        : 'https://rxcrud-api-template.herokuapp.com/'
 });
 
 const { dispatch } = store;
