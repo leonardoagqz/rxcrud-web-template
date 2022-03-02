@@ -1,0 +1,377 @@
+.not_found {
+    width: 100%;
+    margin: 0px;
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(47, 54, 64, 1) 23%, rgba(24, 27, 32, 1) 100%);
+}
+
+.moon {
+    content: '';
+    top: -100px;
+    left: -300px;
+    width: 900px;
+    height: 900px;
+    position: absolute;
+    border-radius: 100%;
+    box-shadow: 0px 0px 30px -4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(90deg, rgba(208, 208, 208, 1) 48%, rgba(145, 145, 145, 1) 100%);
+}
+
+.moon_crater {
+    content: '';
+    opacity: 0.6;
+    position: absolute;
+    border-radius: 100%;
+    background: linear-gradient(90deg, rgba(122, 122, 122, 1) 38%, rgba(195, 195, 195, 1) 100%);
+}
+
+.moon_crater1 {
+    top: 250px;
+    left: 500px;
+    width: 60px;
+    height: 180px;
+}
+
+.moon_crater2 {
+    top: 650px;
+    left: 340px;
+    width: 40px;
+    height: 80px;
+    transform: rotate(55deg);
+}
+
+.moon_crater3 {
+    top: -20px;
+    left: 40px;
+    width: 65px;
+    height: 120px;
+    transform: rotate(250deg);
+}
+
+.star {
+    width: 5px;
+    height: 5px;
+    content: '';
+    opacity: 0.4;
+    background: grey;
+    position: absolute;
+    border-radius: 100%;
+    animation-name: shimmer;
+    animation-duration: 1.5s;
+    transform: rotate(250deg);
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shimmer {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.7;
+    }
+}
+
+.star1 {
+    top: 40%;
+    left: 50%;
+    animation-delay: 1s;
+}
+
+.star2 {
+    top: 60%;
+    left: 90%;
+    animation-delay: 3s;
+}
+
+.star3 {
+    top: 10%;
+    left: 70%;
+    animation-delay: 2s;
+}
+
+.star4 {
+    top: 90%;
+    left: 40%;
+}
+
+.star5 {
+    top: 20%;
+    left: 30%;
+    animation-delay: 0.5s;
+}
+
+.error {
+    top: 400px;
+    left: 100px;
+    color: #363E49;
+    position: absolute;
+    transform: translateY(-60%);
+}
+
+.error_title {
+    font-size: 10em;
+}
+
+.error_subtitle {
+    font-size: 2em;
+}
+
+.error_button {
+    outline: none;
+    font-size: 1em;
+    min-width: 7em;
+    margin-top: 3em;
+    cursor: pointer;
+    color: #576375;
+    padding: 0.5em 2em;
+    border-radius: 8em;
+    margin-right: 0.5em;
+    transition-duration: 0.2s;
+    border: 2px solid #2F3640;
+    background-color: transparent;
+}
+
+.error_button:hover {
+    color: #21252C;
+}
+
+.error_button--active {
+    color: white;
+    background-color: #FF7D00;
+    border: 2px solid #FF7D00;
+}
+
+.error_button--active:hover {
+    color: white;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
+.astronaut {
+    top: 50%;
+    left: 70%;
+    width: 185px;
+    height: 300px;
+    position: absolute;
+    transform: translate(-50%, -50%) rotate(20deg) scale(1.2);
+}
+
+.astronaut_head {
+    top: 60px;
+    left: 60px;
+    content: '';
+    width: 60px;
+    height: 60px;
+    border-radius: 2em;
+    position: absolute;
+    background-color: white;
+}
+
+.astronaut_head-visor-flare1 {
+    top: 28px;
+    left: 40px;
+    content: '';
+    width: 10px;
+    height: 10px;
+    opacity: 0.5;
+    position: absolute;
+    border-radius: 2em;
+    background-color: #7F8FA6;
+}
+
+.astronaut_head-visor-flare2 {
+    top: 40px;
+    left: 38px;
+    width: 5px;
+    height: 5px;
+    content: '';
+    opacity: 0.3;
+    position: absolute;
+    border-radius: 2em;
+    background-color: #718093;
+}
+
+.astronaut_backpack {
+    top: 90px;
+    left: 47px;
+    width: 86px;
+    content: '';
+    height: 90px;
+    position: absolute;
+    border-radius: 8px;
+    background-color: #BFBFBF;
+}
+
+.astronaut_body {
+    top: 115px;
+    left: 55px;
+    width: 70px;
+    content: '';
+    height: 80px;
+    position: absolute;
+    border-radius: 8px;
+    background-color: #E6E6E6;
+}
+
+.astronaut_body_chest {
+    top: 140px;
+    left: 68px;
+    width: 45px;
+    content: '';
+    height: 25px;
+    position: absolute;
+    border-radius: 6px;
+    background-color: #D9D9D9;
+}
+
+.astronaut_arm-left1 {
+    top: 127px;
+    left: 9px;
+    width: 65px;
+    content: '';
+    height: 20px;
+    position: absolute;
+    border-radius: 8px;
+    transform: rotate(-30deg);
+    background-color: #E6E6E6;
+}
+
+.astronaut_arm-left2 {
+    left: 7px;
+    top: 102px;
+    content: '';
+    width: 20px;
+    height: 45px;
+    position: absolute;
+    border-radius: 8px;
+    transform: rotate(-12deg);
+    background-color: #E6E6E6;
+    border-top-left-radius: 8em;
+    border-top-right-radius: 8em;
+}
+
+.astronaut_arm-right1 {
+    top: 113px;
+    left: 100px;
+    width: 65px;
+    content: '';
+    height: 20px;
+    position: absolute;
+    border-radius: 8px;
+    transform: rotate(-10deg);
+    background-color: #E6E6E6;
+}
+
+.astronaut_arm-right2 {
+    top: 78px;
+    left: 141px;
+    width: 20px;
+    content: '';
+    height: 45px;
+    position: absolute;
+    border-radius: 8px;
+    transform: rotate(-10deg);
+    background-color: #E6E6E6;
+    border-top-left-radius: 8em;
+    border-top-right-radius: 8em;
+}
+
+.astronaut_arm-thumb-left {
+    top: 110px;
+    left: 21px;
+    width: 10px;
+    height: 6px;
+    content: '';
+    position: absolute;
+    border-radius: 8em;
+    transform: rotate(-35deg);
+    background-color: #E6E6E6;
+}
+
+.astronaut_arm-thumb-right {
+    top: 90px;
+    left: 133px;
+    width: 10px;
+    height: 6px;
+    content: '';
+    position: absolute;
+    border-radius: 8em;
+    transform: rotate(20deg);
+    background-color: #E6E6E6;
+}
+
+.astronaut_wrist-left {
+    top: 122px;
+    left: 6.5px;
+    width: 21px;
+    height: 4px;
+    content: '';
+    position: absolute;
+    border-radius: 8em;
+    transform: rotate(-15deg);
+    background-color: #FF7D00;
+}
+
+.astronaut_wrist-right {
+    top: 98px;
+    left: 141px;
+    width: 21px;
+    height: 4px;
+    content: '';
+    position: absolute;
+    border-radius: 8em;
+    transform: rotate(-10deg);
+    background-color: #FF7D00;
+}
+
+.astronaut_leg-left {
+    top: 188px;
+    left: 50px;
+    width: 23px;
+    content: '';
+    height: 75px;
+    position: absolute;
+    transform: rotate(10deg);
+    background-color: #E6E6E6;
+}
+
+.astronaut_leg-right {
+    top: 188px;
+    left: 108px;
+    width: 23px;
+    content: '';
+    height: 75px;
+    position: absolute;
+    transform: rotate(-10deg);
+    background-color: #E6E6E6;
+}
+
+.astronaut_foot-left {
+    top: 240px;
+    left: 43px;
+    width: 28px;
+    content: '';
+    height: 20px;
+    position: absolute;
+    border-radius: 3px;
+    transform: rotate(10deg);
+    background-color: white;
+    border-top-left-radius: 8em;
+    border-top-right-radius: 8em;
+    border-bottom: 4px solid #FF7D00;
+}
+
+.astronaut_foot-right {
+    top: 240px;
+    left: 111px;
+    width: 28px;
+    content: '';
+    height: 20px;
+    position: absolute;
+    border-radius: 3px;
+    transform: rotate(-10deg);
+    background-color: white;
+    border-top-left-radius: 8em;
+    border-top-right-radius: 8em;
+    border-bottom: 4px solid #FF7D00;
+}
