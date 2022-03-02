@@ -2,7 +2,6 @@ import { AxiosError } from 'axios';
 import { useState, useEffect } from 'react';
 import api, { ApiError } from '../../../services/api';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { Checkbox } from '../../../rxlib/componentes/checkbox';
 import { CadastroProps, Usuario } from '../../../services/tipos';
 import { InputLabel } from '../../../rxlib/componentes/input-label';
 import { Redirecionar } from '../../../rxlib/componentes/redirecionar';
