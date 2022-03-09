@@ -1,4 +1,4 @@
-/* rxlib - SelectLabelAsync v1.1.6 */
+/* rxlib - SelectLabelAsync v1.1.8 */
 
 import { Spinner } from '../../spinner';
 import api from '../../../../services/api';
@@ -9,16 +9,17 @@ import { ModalWarning } from '../../modal/modal-warning';
 import { ActionMeta, OptionsType, StylesConfig } from 'react-select';
 
 import {
-    requestUrl,
-    RequestType,
+    DataType,
+    RequestTypeArray,
     SelectLabelAsyncPrimaryColor,
     SelectLabelAsyncDisabledColor,
     SelectLabelAsyncSecondaryColor,
 } from '../../../../services/config';
 
-export type RequestUrlType = {
+export type RequestType = {
     url: string;
-    type: RequestType;
+    type: DataType;
+    useOdata: boolean;
     fieldValue: string;
     fieldLabel: string;
     fieldValueLowerCase: string;
@@ -42,7 +43,7 @@ interface SelectLabelAsyncProps {
     id: string;
     name: string;
     label: string;
-    type: RequestType;
+    type: DataType;
     isMulti?: boolean;
     className?: string;
     linkAtalho?: string;
@@ -125,7 +126,7 @@ export function SelectLabelAsync(props: SelectLabelAsyncProps) {
                     setCarregando(true);
                     api.get(request)
                         .then(response => {
-                            const requestType = requestUrl.find(item => item.type === props.type);
+                            const requestType: RequestType | undefined = getRequestType(props.type);
 
                             if (requestType) {
                                 setDefaultValue({
@@ -165,7 +166,7 @@ export function SelectLabelAsync(props: SelectLabelAsyncProps) {
                         setCarregando(true);
                         api.get(request)
                             .then(response => {
-                                const requestType = requestUrl.find(item => item.type === props.type);
+                                const requestType: RequestType | undefined = getRequestType(props.type);
 
                                 if (requestType) {
                                     if (index > 0) {
@@ -273,7 +274,16 @@ export function SelectLabelAsync(props: SelectLabelAsyncProps) {
                                 });
                             }
 
-                            return getItens(response.data.value, props.type, props.listaIdParaDesabilitar);
+                            const requestType: RequestType | undefined = getRequestType(props.type);
+                            if (requestType) {
+                                if (requestType.useOdata) {
+                                    return getItens(response.data.value, props.type, props.listaIdParaDesabilitar);
+                                } else {
+                                    return getItens(response.data, props.type, props.listaIdParaDesabilitar);
+                                }
+                            } else {
+                                return [];
+                            }
                         }).catch(error => {
                             showMessageWarning('Não foi possível realizar a consulta. ' + error.message);
                             return [];
@@ -370,11 +380,15 @@ export function SelectLabelAsync(props: SelectLabelAsyncProps) {
     )
 }
 
-function getEndPointRequest(type: string, value: string, filtroPesonalizado?: FiltroPesonalizado[]): string {
+function getRequestType(type: DataType): RequestType | undefined {
+    return RequestTypeArray.find(item => item.type === type);
+}
+
+function getEndPointRequest(type: DataType, value: string, filtroPesonalizado?: FiltroPesonalizado[]): string {
     if ((type) && (value)) {
-        const request = requestUrl.find(item => item.type === type);
-        let url = request?.url;
-        if ((request) && (url)) {
+        const requestType: RequestType | undefined = getRequestType(type);
+        let url = requestType?.url;
+        if ((requestType) && (url)) {
             if (filtroPesonalizado) {
                 url = `${url} ${getFiltroPersonalizao(filtroPesonalizado)}`;
             }
@@ -418,11 +432,11 @@ function getvalorFiltroPersonalizao(filtroPesonalizado: FiltroPesonalizado): str
         : filtroPesonalizado.valueDefault;
 }
 
-function getItens(data: [{ [key: string]: string; }], type: RequestType, listaIdParaDesabilitar: string[] | undefined): SelectValue[] {
+function getItens(data: [{ [key: string]: string; }], type: DataType, listaIdParaDesabilitar: string[] | undefined): SelectValue[] {
     let itens: SelectValue[] = [];
 
     for (let contador = 0; contador < data.length; contador++) {
-        const requestType = requestUrl.find(item => item.type === type);
+        const requestType: RequestType | undefined = getRequestType(type);
 
         if (requestType) {
             itens.push({

@@ -39,7 +39,7 @@ function Home(props: AcessoProps) {
                     <p> - - - ButtonsCrud v1.1.0</p>
                     <p> - - Card v1.1.1</p>
                     <p> - - Checkbox v1.1.0</p>
-                    <p> - - InputLabel v1.1.2</p>
+                    <p> - - InputLabel v1.1.3</p>
                     <p> - - layout</p>
                     <p> - - - Exclusao v1.1.0</p>
                     <p> - - - Listagem v1.1.3</p>
@@ -54,11 +54,11 @@ function Home(props: AcessoProps) {
                     <p> - - Redirecionar v1.1.0</p>
                     <p> - - select</p>
                     <p> - - - SelectLabel v1.1.3</p>
-                    <p> - - - SelectLabelAsync v1.1.5</p>
+                    <p> - - - SelectLabelAsync v1.1.8</p>
                     <p> - - - SelectLabelUf v1.1.1</p>
                     <p> - - Spinner v1.1.1</p>
-                    <p> - - Table v1.1.4</p>
-                    <p> - - TextareaLabel v1.1.1</p>
+                    <p> - - Table v1.1.5</p>
+                    <p> - - TextareaLabel v1.1.2</p>
                     <p> - - TreePermissoes v1.1.0</p>
                     <p> - - VerticalTimeline v1.1.0</p>
                     <p> - services</p>

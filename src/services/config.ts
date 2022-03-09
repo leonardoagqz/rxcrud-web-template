@@ -2,7 +2,7 @@
 
 import { TipoColunaTabelaBase } from '../rxlib/componentes/table';
 import { Item, Menu } from '../rxlib/componentes/layout/rxlib-Layout';
-import { RequestUrlType } from '../rxlib/componentes/select/select-label-async';
+import { RequestType } from '../rxlib/componentes/select/select-label-async';
 
 /* SelectLabelAsync */
 
@@ -10,10 +10,11 @@ export const SelectLabelAsyncPrimaryColor = '#FDA227';
 export const SelectLabelAsyncDisabledColor = '#CCCCCC';
 export const SelectLabelAsyncSecondaryColor = '#FFFFFF';
 
-export type RequestType = 'DadosFixos' | 'Exemplo';
+export type DataType = 'DadosFixos' | 'Exemplo';
 
-export const requestUrl: RequestUrlType[] = [
+export const RequestTypeArray: RequestType[] = [
     {
+        useOdata: true,
         type: 'Exemplo',
         fieldValue: 'fieldValue',
         fieldLabel: 'fieldLabel',

@@ -71,7 +71,7 @@ export function NavbarLayout(props: NavbarLayoutProps) {
             {props.children}
 
             <nav className='navbar fixed-bottom rxlib-navbar-footer'>
-                <span className='text-center rxlib-developer-by'>© 2020-2022 - {obterNomeEmpresa()} - {obterVersao()}
+                <span className='text-center rxlib-developer-by'>© 2022 - {obterNomeEmpresa()} - {obterVersao()}
                     <span className='rxlib-homologacao'>{obterAmbiente()}</span>
                 </span>
             </nav>

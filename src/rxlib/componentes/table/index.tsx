@@ -1,4 +1,4 @@
-/* rxlib - Table v1.1.4 */
+/* rxlib - Table v1.1.5 */
 
 import { useState } from 'react';
 import { CSVLink } from 'react-csv';
@@ -306,12 +306,7 @@ export function Table(props: TableProps) {
                                 </tr>
                             ))
                             : <tr key='0'>
-                                <td key='0'>{props.configuracoes.mensagemPadrao}</td>
-                                {
-                                    props.configuracoes.colunas.map((coluna, index) =>
-                                        <td key={index} />
-                                    )
-                                }
+                                <td key='0' colSpan={props.configuracoes.colunas.length + 1}>{props.configuracoes.mensagemPadrao}</td>
                             </tr>
                     }
                 </tbody>

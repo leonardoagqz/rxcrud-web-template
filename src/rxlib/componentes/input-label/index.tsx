@@ -1,4 +1,4 @@
-/* rxlib - InputLabel v1.1.2 */
+/* rxlib - InputLabel v1.1.3 */
 
 import React, { useEffect, useState } from 'react';
 import { maskCpf, maskCnpj, maskCep, maskCurrency, maskInteiro, maskTelefone } from './mask';
@@ -105,7 +105,11 @@ export function InputLabel(props: InputLabelProps) {
 
     return (
         <>
-            <label htmlFor={props.id} className='form-label'>{props.label}</label>
+            {
+                (props.label !== '')
+                    ? <label htmlFor={props.id} className='form-label'>{props.label}</label>
+                    : ''
+            }
             {
                 (props.action === 'view')
                     ? (props.foco === 'sim')
