@@ -1,4 +1,4 @@
-/* RXLib v1.1.6 */
+/* RXLib v1.1.7 */
 
 :root {
     /* rxlib */
@@ -269,19 +269,18 @@ body {
 }
 
 .rxlib-select-label-async-input {
-    width: 50%;
+    width: 95%;
     height: 0px;
+    margin-bottom: 0.1rem;
 }
 
 .rxlib-select-label-async-input input {
-    width: 45%;
     height: 0px;
-    z-index: -1;
     border: none;
+    padding: 0.5px;
     color: #FFFFFF;
-    position: absolute;
-    margin-left: 1.5rem;
-    margin-top: -0.80rem;
+    margin-left: 0.5rem;
+    margin-top: -0.1rem;
 }
 
 .rxlib-select-label-async-input input:focus {
@@ -298,7 +297,6 @@ body {
 }
 
 .rxlib-select-label-async-coluna .rxlib-select-label-async-input input {
-    width: 25%;
     color: #FFFFFF;
 }
 

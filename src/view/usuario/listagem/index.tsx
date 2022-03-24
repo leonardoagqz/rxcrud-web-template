@@ -1,26 +1,27 @@
+import { AxiosError } from 'axios';
 import api from '../../../services/api';
 import { useState, useEffect } from 'react';
-import { ListagemProps } from '../../../services/tipos';
+import { ApiError, ListagemProps } from '../../../services/tipos';
 import { Listagem } from '../../../rxlib/componentes/layout/listagem';
 import { ConfiguracoesTabela } from '../../../rxlib/componentes/table';
 import { RxlibLayout } from '../../../rxlib/componentes/layout/rxlib-Layout';
 import { ModalWarning } from '../../../rxlib/componentes/modal/modal-warning';
-import { obterQuantidadeParaPular } from '../../../rxlib/services/utilitarios';
 import { Breadcrumb, BreadcrumbItem } from '../../../rxlib/componentes/breadcrumb';
+import { obterQuantidadeParaPular, tratarErroApi } from '../../../rxlib/services/utilitarios';
 
 function UsuarioListagem(props: ListagemProps) {
     const [usuarios, setUsuarios] = useState<[{}]>([{}]);
     const [carregando, setCarregando] = useState<boolean>(false);
     const [showWarning, setShowWarning] = useState<boolean>(false);
-    const [messageWarning, setMessageWarning] = useState<string>('');
     const [quantidadeTotal, setQuantidadeTotal] = useState<number>(0);
+    const [messageWarning, setMessageWarning] = useState<string[]>([]);
 
     const handleHide = () => setShowWarning(false);
 
     const breadcrumbs: BreadcrumbItem[] = [
         { texto: 'Home', link: '/home' },
         { texto: 'Usuários', link: '' },
-    ]
+    ];
 
     const configuracoesTabela: ConfiguracoesTabela = {
         mensagemPadrao: 'Não foram encontrados resultados para a consulta.',
@@ -42,9 +43,9 @@ function UsuarioListagem(props: ListagemProps) {
                     setUsuarios(response.data.value);
                     setCarregando(false);
                 }, 250);
-            }).catch(error => {
+            }).catch((error: AxiosError<ApiError>) => {
                 setCarregando(false);
-                setMessageWarning('Não foi possível realizar a consulta: ' + error.message);
+                setMessageWarning(tratarErroApi(error, 'Não foi possível realizar a consulta: '));
                 setShowWarning(true);
             });
     }, [quantidadeParaPular]);
@@ -71,9 +72,9 @@ function UsuarioListagem(props: ListagemProps) {
                     paginaAtual={parseInt(props.match.params.pagina)}
                     quantidadeRegistrosPorPagina={quantidadeRegistrosPorPagina} />
                 <ModalWarning
+                    show={showWarning}
                     onHide={handleHide}
-                    showWarning={showWarning}
-                    messageWarning={messageWarning} />
+                    message={messageWarning} />
             </RxlibLayout>
         </>
     )

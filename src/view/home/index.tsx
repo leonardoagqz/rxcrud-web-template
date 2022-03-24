@@ -8,12 +8,12 @@ import { ModalWarning } from '../../rxlib/componentes/modal/modal-warning';
 function Home(props: AcessoProps) {
     const [acao, setAcao] = useState(props.match.params.acao);
     const [showWarning, setShowWarning] = useState<boolean>(false);
-    const [messageWarning, setMessageWarning] = useState<string>('');
+    const [messageWarning, setMessageWarning] = useState<string[]>([]);
 
     const handleHide = () => setShowWarning(false);
 
     function showMensagemSemAcesso() {
-        setMessageWarning('Usuário logado não tem permissão para realizar essa ação.');
+        setMessageWarning(['Usuário logado não tem permissão para realizar essa ação.']);
         setShowWarning(true);
         setAcao('');
     }
@@ -38,8 +38,8 @@ function Home(props: AcessoProps) {
                     <p> - - - ButtonTableOrder v1.1.0</p>
                     <p> - - - ButtonsCrud v1.1.0</p>
                     <p> - - Card v1.1.1</p>
-                    <p> - - Checkbox v1.1.0</p>
-                    <p> - - InputLabel v1.1.3</p>
+                    <p> - - Checkbox v1.1.2</p>
+                    <p> - - InputLabel v1.1.5</p>
                     <p> - - layout</p>
                     <p> - - - Exclusao v1.1.0</p>
                     <p> - - - Listagem v1.1.3</p>
@@ -47,14 +47,14 @@ function Home(props: AcessoProps) {
                     <p> - - - RxlibLayout v1.1.3</p>
                     <p> - - - SidebarLayout v1.1.1</p>
                     <p> - - modal</p>
-                    <p> - - - ModalPrimary v1.1.0</p>
-                    <p> - - - ModalWarning v1.1.0</p>
+                    <p> - - - ModalPrimary v1.1.2</p>
+                    <p> - - - ModalWarning v1.1.2</p>
                     <p> - - Paginacao v1.1.1</p>
                     <p> - - Popover v1.1.0</p>
                     <p> - - Redirecionar v1.1.0</p>
                     <p> - - select</p>
                     <p> - - - SelectLabel v1.1.3</p>
-                    <p> - - - SelectLabelAsync v1.1.8</p>
+                    <p> - - - SelectLabelAsync v1.1.11</p>
                     <p> - - - SelectLabelUf v1.1.1</p>
                     <p> - - Spinner v1.1.1</p>
                     <p> - - Table v1.1.5</p>
@@ -63,17 +63,17 @@ function Home(props: AcessoProps) {
                     <p> - - VerticalTimeline v1.1.0</p>
                     <p> - services</p>
                     <p> - - Seguranca v1.1.2</p>
-                    <p> - - Utilitarios v1.1.3</p>
+                    <p> - - Utilitarios v1.1.5</p>
                     <p> - style</p>
                     <p> - - Responsividade v1.1.0</p>
-                    <p> - - RXLib v1.1.5</p>
+                    <p> - - RXLib v1.1.7</p>
                 </div>
             </RxlibLayout>
 
             <ModalWarning
+                show={showWarning}
                 onHide={handleHide}
-                showWarning={showWarning}
-                messageWarning={messageWarning} />
+                message={messageWarning} />
         </>
     )
 }

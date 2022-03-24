@@ -1,4 +1,4 @@
-/* rxlib - Checkbox v1.1.0 */
+/* rxlib - Checkbox v1.1.2 */
 
 interface CheckboxProps {
     text: string;
@@ -8,6 +8,7 @@ interface CheckboxProps {
     action: '' | 'view';
     referencia: React.LegacyRef<HTMLInputElement>;
     onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
+    onClick?: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
 }
 
 export function Checkbox(props: CheckboxProps) {
@@ -17,14 +18,14 @@ export function Checkbox(props: CheckboxProps) {
                 (props.action === 'view')
                     ? props.checked
                         ? <input ref={props.referencia} className='form-check-input me-2' type='checkbox' value={props.value}
-                            name={props.name} onChange={props.onChange} aria-label='...' defaultChecked disabled />
+                            name={props.name} onChange={props.onChange} onClick={props.onClick} aria-label='...' defaultChecked disabled />
                         : <input ref={props.referencia} className='form-check-input me-2' type='checkbox' value={props.value}
-                            name={props.name} onChange={props.onChange} aria-label='...' disabled />
+                            name={props.name} onChange={props.onChange} onClick={props.onClick} aria-label='...' disabled />
                     : props.checked
                         ? <input ref={props.referencia} className='form-check-input me-2' type='checkbox' value={props.value}
-                            name={props.name} onChange={props.onChange} aria-label='...' defaultChecked />
+                            name={props.name} onChange={props.onChange} onClick={props.onClick} aria-label='...' defaultChecked />
                         : <input ref={props.referencia} className='form-check-input me-2' type='checkbox' value={props.value}
-                            name={props.name} onChange={props.onChange} aria-label='...' />
+                            name={props.name} onChange={props.onChange} onClick={props.onClick} aria-label='...' />
             }
             {props.text}
         </>

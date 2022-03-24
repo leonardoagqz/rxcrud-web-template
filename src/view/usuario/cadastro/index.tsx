@@ -1,24 +1,24 @@
 import { AxiosError } from 'axios';
+import api from '../../../services/api';
 import { useState, useEffect } from 'react';
-import api, { ApiError } from '../../../services/api';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { CadastroProps, Usuario } from '../../../services/tipos';
 import { InputLabel } from '../../../rxlib/componentes/input-label';
 import { Redirecionar } from '../../../rxlib/componentes/redirecionar';
+import { ApiError, CadastroProps, Usuario } from '../../../services/tipos';
 import { RxlibLayout } from '../../../rxlib/componentes/layout/rxlib-Layout';
 import { ModalPrimary } from '../../../rxlib/componentes/modal/modal-primary';
 import { ModalWarning } from '../../../rxlib/componentes/modal/modal-warning';
 import { ButtonsCrud } from '../../../rxlib/componentes/buttons/buttons-crud';
 import { Breadcrumb, BreadcrumbItem } from '../../../rxlib/componentes/breadcrumb';
-import { criptografar, descriptografar } from '../../../rxlib/services/utilitarios';
+import { criptografar, descriptografar, tratarErroApi } from '../../../rxlib/services/utilitarios';
 
 function UsuarioCadastro(props: CadastroProps) {
     const [salvo, setSalvo] = useState<boolean>(false);
     const [carregando, setCarregando] = useState<boolean>(false);
     const [showWarning, setShowWarning] = useState<boolean>(false);
     const [showPrimary, setShowPrimary] = useState<boolean>(false);
-    const [messageWarning, setMessageWarning] = useState<string>('');
-    const [messagePrimary, setMessagePrimary] = useState<string>('');
+    const [messageWarning, setMessageWarning] = useState<string[]>([]);
+    const [messagePrimary, setMessagePrimary] = useState<string[]>([]);
 
     const [usuario, setUsuario] = useState<Usuario>({
         id: '',
@@ -42,7 +42,6 @@ function UsuarioCadastro(props: CadastroProps) {
         { texto: 'Usuários', link: '/usuario' },
         { texto: props.match.params.action ? 'Visualização' : props.match.params.id ? 'Edição' : 'Novo', link: '' },
     ];
-
 
     useEffect(() => {
         if (props.match.params.id) {
@@ -88,17 +87,13 @@ function UsuarioCadastro(props: CadastroProps) {
     }
 
     function informarSucesso() {
-        setMessagePrimary('Usuário salvo com sucesso.');
+        setMessagePrimary(['Usuário salvo com sucesso.']);
         setShowPrimary(true);
     }
 
     function tratarErro(error: AxiosError<ApiError>) {
         setCarregando(false);
-        if (error.response) {
-            setMessageWarning(error.response.data.Mensagem);
-        } else {
-            setMessageWarning('Não foi possível salvar o usuário: ' + error.message);
-        }
+        setMessageWarning(tratarErroApi(error, 'Não foi possível salvar o usuário: '));
         setShowWarning(true);
     }
 
@@ -201,14 +196,14 @@ function UsuarioCadastro(props: CadastroProps) {
                 </form>
 
                 <ModalWarning
-                    showWarning={showWarning}
-                    onHide={handleHideWarning}
-                    messageWarning={messageWarning} />
+                    show={showWarning}
+                    message={messageWarning}
+                    onHide={handleHideWarning} />
 
                 <ModalPrimary
-                    showPrimary={showPrimary}
-                    onHide={handleHidePrimary}
-                    messagePrimary={messagePrimary} />
+                    show={showPrimary}
+                    message={messagePrimary}
+                    onHide={handleHidePrimary} />
 
                 <Redirecionar
                     se={salvo}

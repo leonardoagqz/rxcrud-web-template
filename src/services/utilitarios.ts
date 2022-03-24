@@ -1,5 +1,5 @@
 export function obterVersao(): string {
-    return 'v1.0.0';
+    return 'v1.0.1';
 }
 
 export function obterNomeEmpresa(): string {

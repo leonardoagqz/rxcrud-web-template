@@ -1,10 +1,6 @@
 import axios from 'axios';
 import { store } from '../store';
 
-export interface ApiError {
-    Mensagem: string;
-}
-
 const api = axios.create({
     baseURL: process.env.REACT_APP_API_URL
         ? process.env.REACT_APP_API_URL

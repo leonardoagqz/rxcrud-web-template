@@ -1,12 +1,15 @@
-/* rxlib - SelectLabelAsync v1.1.8 */
+/* rxlib - SelectLabelAsync v1.1.11 */
 
+import { AxiosError } from 'axios';
 import { Spinner } from '../../spinner';
 import api from '../../../../services/api';
 import AsyncSelect from 'react-select/async';
 import React, { useEffect, useState } from 'react';
+import { ApiError } from '../../../../services/tipos';
 import { ButtonLink } from '../../buttons/button-link';
 import { ModalWarning } from '../../modal/modal-warning';
-import { ActionMeta, OptionsType, StylesConfig } from 'react-select';
+import { tratarErroApi } from '../../../services/utilitarios';
+import { ActionMeta, GroupTypeBase, OptionsType, StylesConfig } from 'react-select';
 
 import {
     DataType,
@@ -44,6 +47,7 @@ interface SelectLabelAsyncProps {
     name: string;
     label: string;
     type: DataType;
+    limpar?: boolean;
     isMulti?: boolean;
     className?: string;
     linkAtalho?: string;
@@ -64,7 +68,7 @@ export function SelectLabelAsync(props: SelectLabelAsyncProps) {
     const [carregando, setCarregando] = useState<boolean>(false);
     const [valueSelected, setValueSelected] = useState<string>('');
     const [showWarning, setShowWarning] = useState<boolean>(false);
-    const [messageWarning, setMessageWarning] = useState<string>('');
+    const [messageWarning, setMessageWarning] = useState<string[]>([]);
 
     const [defaultValue, setDefaultValue] = useState<SelectValue>({
         label: '',
@@ -80,7 +84,7 @@ export function SelectLabelAsync(props: SelectLabelAsyncProps) {
 
     const handleHideWarning = () => setShowWarning(false);
 
-    function showMessageWarning(mensagem: string) {
+    function showMessageWarning(mensagem: string[]) {
         setMessageWarning(mensagem);
         setShowWarning(true);
     }
@@ -105,14 +109,25 @@ export function SelectLabelAsync(props: SelectLabelAsyncProps) {
         selectDefaultOptions = props.defaultOptions;
     }
 
+    let selectLimpar = false;
+    if (props.limpar !== undefined) {
+        selectLimpar = props.limpar;
+    }
+
+    let selectRef: AsyncSelect<SelectValue, boolean, GroupTypeBase<SelectValue>> | null = null;
+
     useEffect(() => {
         if (props.onChangeValueSelected) {
             props.onChangeValueSelected(valueSelected);
         }
-    }, [props, valueSelected]);
+        if (selectLimpar) {
+            (selectRef as any).select.select.clearValue();
+        }
+    }, [props, valueSelected, selectLimpar, selectRef]);
 
     useEffect(() => {
         function carregarDefaultValue() {
+            setValueSelected('');
             setDefaultValue({
                 label: '',
                 value: '',
@@ -137,14 +152,15 @@ export function SelectLabelAsync(props: SelectLabelAsyncProps) {
                                 setValueSelected(response.data[requestType.fieldValueLowerCase]);
                                 setCarregando(false);
                             }
-                        }).catch(error => {
-                            showMessageWarning('Não foi possível realizar a consulta pelo item selecionado. ' + error.message);
+                        }).catch((error: AxiosError<ApiError>) => {
+                            showMessageWarning(tratarErroApi(error, 'Não foi possível realizar a consulta pelo item selecionado. '));
                         });
                 }
             }
         }
 
         function carregarDefaultValues() {
+            setValueSelected('');
             setDefaultValues([{
                 label: '',
                 value: '',
@@ -193,8 +209,8 @@ export function SelectLabelAsync(props: SelectLabelAsyncProps) {
                                     setDefaultValues(values);
                                     setCarregando(false);
                                 }
-                            }).catch(error => {
-                                showMessageWarning('Não foi possível realizar a consulta pelo item selecionado. ' + error.message);
+                            }).catch((error: AxiosError<ApiError>) => {
+                                showMessageWarning(tratarErroApi(error, 'Não foi possível realizar a consulta pelo item selecionado. '));
                             });
                     }
                 });
@@ -284,8 +300,8 @@ export function SelectLabelAsync(props: SelectLabelAsyncProps) {
                             } else {
                                 return [];
                             }
-                        }).catch(error => {
-                            showMessageWarning('Não foi possível realizar a consulta. ' + error.message);
+                        }).catch((error: AxiosError<ApiError>) => {
+                            showMessageWarning(tratarErroApi(error, 'Não foi possível realizar a consulta. '));
                             return [];
                         });
                 }
@@ -314,6 +330,9 @@ export function SelectLabelAsync(props: SelectLabelAsyncProps) {
                                 ? (verificarDefaultValue())
                                     ? <AsyncSelect
                                         isClearable
+                                        ref={ref => {
+                                            selectRef = ref;
+                                        }}
                                         onChange={onChange}
                                         styles={colourStyles}
                                         isMulti={selectIsMulti}
@@ -330,6 +349,9 @@ export function SelectLabelAsync(props: SelectLabelAsyncProps) {
                                         defaultValue={selectIsMulti ? defaultValues : defaultValue} />
                                     : <AsyncSelect
                                         isClearable
+                                        ref={ref => {
+                                            selectRef = ref;
+                                        }}
                                         onChange={onChange}
                                         styles={colourStyles}
                                         isMulti={selectIsMulti}
@@ -373,9 +395,9 @@ export function SelectLabelAsync(props: SelectLabelAsyncProps) {
             </div>
 
             <ModalWarning
-                showWarning={showWarning}
-                onHide={handleHideWarning}
-                messageWarning={messageWarning} />
+                show={showWarning}
+                message={messageWarning}
+                onHide={handleHideWarning} />
         </>
     )
 }

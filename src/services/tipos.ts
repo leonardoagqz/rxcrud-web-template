@@ -2,6 +2,12 @@ import { RouteComponentProps } from 'react-router';
 
 /* Entidades */
 
+export interface ApiError {
+    title: string;
+    errors: string[];
+    Mensagem: string;
+}
+
 export interface FormExclusao {
 }
 

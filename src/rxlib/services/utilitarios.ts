@@ -1,7 +1,9 @@
-/* rxlib - Utilitarios v1.1.3 */
+/* rxlib - Utilitarios v1.1.6 */
 
 import crypto from 'crypto-js';
+import { AxiosError } from 'axios';
 import api from '../../services/api';
+import { ApiError } from '../../services/tipos';
 import { SecretKey } from '../../services/config';
 import { formatarPorTipoPersonalizado } from '../../services/utilitarios';
 import { maskCep, maskCnpj, maskCpf } from '../componentes/input-label/mask';
@@ -169,4 +171,50 @@ export function formatarCpfCnpj(cpfCnpj: string): string {
 
 export function formatarCep(cep: string): string {
     return maskCep(cep);
+}
+
+export function formatarCamposPorTipo<Tipo>(data: Tipo, base: Tipo) {
+    for (const campo in data) {
+        const tipo: string = (typeof base[campo as keyof Tipo]);
+        formatarCampoPorTipo(data, campo, tipo);
+    }
+
+    function formatarCampoPorTipo(fonteDados: any, campo: string, tipo: string) {
+        switch (tipo) {
+            case 'number':
+                fonteDados[campo] = parseFloat(fonteDados[campo].replaceAll('.', '').replaceAll(',', '.'));
+                break;
+            case 'boolean':
+                fonteDados[campo] = Boolean(fonteDados[campo]);
+                break;
+        }
+    }
+}
+
+export function tratarErroApi(error: AxiosError<ApiError>, mensagem: string): string[] {
+    let mensagens: string[] = [];
+    mensagens.push(mensagem);
+
+    if (error.response !== undefined) {
+        if (error.response.data !== undefined) {
+            if (error.response.data.title !== undefined) {
+                if (error.response.data.title === 'One or more validation errors occurred.') {
+                    mensagens.push('Ocorreu um ou mais erros de validação.');
+                } else {
+                    mensagens.push(error.response.data.title);
+                }
+            }
+            if (error.response.data.errors !== undefined) {
+                let errors: string[] = error.response.data.errors;
+                for (const campo in errors) {
+                    mensagens.push(errors[campo]);
+                }
+            }
+            if (error.response.data.Mensagem !== undefined) {
+                mensagens.push(error.response.data.Mensagem);
+            }
+        }
+    }
+
+    return mensagens;
 }

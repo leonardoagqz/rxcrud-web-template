@@ -1,12 +1,21 @@
-/* rxlib - InputLabel v1.1.3 */
+/* rxlib - InputLabel v1.1.5 */
 
 import React, { useEffect, useState } from 'react';
-import { maskCpf, maskCnpj, maskCep, maskCurrency, maskInteiro, maskTelefone } from './mask';
+
+import {
+    maskCpf,
+    maskCep,
+    maskCnpj,
+    maskInteiro,
+    maskCurrency,
+    maskTelefone,
+} from './mask';
 
 interface InputLabelProps {
     id: string;
     name: string;
     label: string;
+    limpar?: boolean;
     maxLength: number;
     accept?: 'image/*';
     className?: string;
@@ -33,6 +42,11 @@ export function InputLabel(props: InputLabelProps) {
     let inputRequired = 'sim';
     if (props.required !== undefined) {
         inputRequired = props.required;
+    }
+
+    let inputLimpar = false;
+    if (props.limpar !== undefined) {
+        inputLimpar = props.limpar;
     }
 
     function verificarEvento(event: React.ChangeEvent<HTMLInputElement>) {
@@ -103,6 +117,39 @@ export function InputLabel(props: InputLabelProps) {
         setStateValorPadrao();
     }, [props.defaultValue, props.mask]);
 
+    function configurarInput(): React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+        const tamanhoMinimo: number = 0;
+        const incrementoQuandoInputTipoNumber: number = 1;
+
+        let inputProps: React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> = {
+            id: props.id,
+            name: props.name,
+            type: props.type,
+            min: tamanhoMinimo,
+            accept: props.accept,
+            ref: props.referencia,
+            className: inputClass,
+            maxLength: props.maxLength,
+            placeholder: props.placeholder,
+            autoFocus: (props.foco === 'sim'),
+            required: (inputRequired === 'sim'),
+            readOnly: (props.action === 'view'),
+            step: incrementoQuandoInputTipoNumber,
+            defaultValue: (inputLimpar ? '' : valorPadrao),
+            onChange: (props.action === 'view' ? props.onChange : (event: React.ChangeEvent<HTMLInputElement>) => verificarEvento(event)),
+        };
+
+        if (inputLimpar) {
+            inputProps.value = '';
+        }
+
+        if (props.type === 'date') {
+            inputProps.max = '9999-12-31';
+        }
+
+        return inputProps;
+    }
+
     return (
         <>
             {
@@ -110,39 +157,8 @@ export function InputLabel(props: InputLabelProps) {
                     ? <label htmlFor={props.id} className='form-label'>{props.label}</label>
                     : ''
             }
-            {
-                (props.action === 'view')
-                    ? (props.foco === 'sim')
-                        ? (inputRequired === 'sim')
-                            ? <input ref={props.referencia} name={props.name} type={props.type} id={props.id} className={inputClass} maxLength={props.maxLength}
-                                placeholder={props.placeholder} defaultValue={valorPadrao} accept={props.accept} step={1} min={0} required
-                                autoFocus readOnly onChange={props.onChange} />
-                            : <input ref={props.referencia} name={props.name} type={props.type} id={props.id} className={inputClass} maxLength={props.maxLength}
-                                placeholder={props.placeholder} defaultValue={valorPadrao} accept={props.accept} step={1} min={0} autoFocus
-                                readOnly onChange={props.onChange} />
-                        : (inputRequired === 'sim')
-                            ? <input ref={props.referencia} name={props.name} type={props.type} id={props.id} className={inputClass} maxLength={props.maxLength}
-                                placeholder={props.placeholder} defaultValue={valorPadrao} accept={props.accept} step={1} min={0} required
-                                readOnly onChange={props.onChange} />
-                            : <input ref={props.referencia} name={props.name} type={props.type} id={props.id} className={inputClass} maxLength={props.maxLength}
-                                placeholder={props.placeholder} defaultValue={valorPadrao} accept={props.accept} step={1} min={0} readOnly
-                                onChange={props.onChange} />
-                    : (props.foco === 'sim')
-                        ? (inputRequired === 'sim')
-                            ? <input ref={props.referencia} name={props.name} type={props.type} id={props.id} className={inputClass} maxLength={props.maxLength}
-                                placeholder={props.placeholder} defaultValue={valorPadrao} accept={props.accept} step={1} min={0} required autoFocus
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => verificarEvento(event)} />
-                            : <input ref={props.referencia} name={props.name} type={props.type} id={props.id} className={inputClass} maxLength={props.maxLength}
-                                placeholder={props.placeholder} defaultValue={valorPadrao} accept={props.accept} step={1} min={0} autoFocus
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => verificarEvento(event)} />
-                        : (inputRequired === 'sim')
-                            ? <input ref={props.referencia} name={props.name} type={props.type} id={props.id} className={inputClass} maxLength={props.maxLength}
-                                placeholder={props.placeholder} defaultValue={valorPadrao} accept={props.accept} step={1} min={0} required
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => verificarEvento(event)} />
-                            : <input ref={props.referencia} name={props.name} type={props.type} id={props.id} className={inputClass} maxLength={props.maxLength}
-                                placeholder={props.placeholder} defaultValue={valorPadrao} accept={props.accept} step={1} min={0}
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => verificarEvento(event)} />
-            }
+
+            <input {...configurarInput()} />
         </>
     )
 }

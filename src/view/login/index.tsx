@@ -2,24 +2,24 @@ import './template.css';
 import { useState } from 'react';
 import { AxiosError } from 'axios';
 import '../../rxlib/style/rxlib.css';
+import api from '../../services/api';
 import logo from '../../images/logo.png';
 import { Redirect } from 'react-router-dom';
 import '../../rxlib/style/responsividade.css';
-import api, { ApiError } from '../../services/api';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { obterVersao } from '../../services/utilitarios';
-import { AcessoProps, FormLogin } from '../../services/tipos';
 import { tokenExpirado } from '../../rxlib/services/seguranca';
 import { Button } from '../../rxlib/componentes/buttons/button';
 import { useAppSelector, useAppDispatch } from '../../store/hooks';
+import { AcessoProps, ApiError, FormLogin } from '../../services/tipos';
 import { ModalWarning } from '../../rxlib/componentes/modal/modal-warning';
-import { criptografar, obterAmbiente } from '../../rxlib/services/utilitarios';
+import { criptografar, obterAmbiente, tratarErroApi } from '../../rxlib/services/utilitarios';
 
 function Login(props: AcessoProps) {
     const [acao, setAcao] = useState(props.match.params.acao);
     const [carregando, setCarregando] = useState<boolean>(false);
     const [showWarning, setShowWarning] = useState<boolean>(false);
-    const [messageWarning, setMessageWarning] = useState<string>('');
+    const [messageWarning, setMessageWarning] = useState<string[]>([]);
     const [token, setToken] = useState<string>(useAppSelector(state => state.token));
     const [logado, setLogado] = useState<boolean>(useAppSelector(state => state.logado));
     const [expirado, setExpirado] = useState<boolean>(useAppSelector(state => state.expirado));
@@ -50,22 +50,18 @@ function Login(props: AcessoProps) {
 
     function tratarErro(error: AxiosError<ApiError>) {
         setCarregando(false);
-        if (error.response) {
-            setMessageWarning(error.response.data.Mensagem);
-        } else {
-            setMessageWarning('Não foi possível realizar o login: ' + error.message);
-        }
+        setMessageWarning(tratarErroApi(error, 'Não foi possível realizar o login: '));
         setShowWarning(true);
     }
 
     function showSecaoExpirada() {
-        setMessageWarning('A seção do usuário expirou. Realize o login novamente.');
+        setMessageWarning(['A seção do usuário expirou. Realize o login novamente.']);
         setShowWarning(true);
         setExpirado(false);
     }
 
     function showAcessoBloqueado() {
-        setMessageWarning('O acesso foi bloqueado pois o usuário não esta logado.');
+        setMessageWarning(['O acesso foi bloqueado pois o usuário não esta logado.']);
         setShowWarning(true);
         setAcao('');
     }
@@ -127,9 +123,9 @@ function Login(props: AcessoProps) {
             </div>
 
             <ModalWarning
+                show={showWarning}
                 onHide={handleHide}
-                showWarning={showWarning}
-                messageWarning={messageWarning} />
+                message={messageWarning} />
         </>
     )
 }
