@@ -1,15 +1,15 @@
 import './template.css';
 import { useState } from 'react';
 import { AxiosError } from 'axios';
-import '../../rxlib/style/rxlib.css';
 import api from '../../services/api';
+import '../../rxlib/style/rxlib.css';
+import { Button } from 'rxlib-react';
 import logo from '../../images/logo.png';
 import { Redirect } from 'react-router-dom';
 import '../../rxlib/style/responsividade.css';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { obterVersao } from '../../services/utilitarios';
 import { tokenExpirado } from '../../rxlib/services/seguranca';
-import { Button } from '../../rxlib/componentes/buttons/button';
 import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import { AcessoProps, ApiError, FormLogin } from '../../services/tipos';
 import { ModalWarning } from '../../rxlib/componentes/modal/modal-warning';
@@ -107,11 +107,12 @@ function Login(props: AcessoProps) {
                             type='submit'
                             texto='Entrar'
                             className='btn-lg'
+                            classStyle='btn-rxlib'
                             carregando={carregando}
-                            spinnerClassName='rxlib-spinner' />
+                            classNameDivSpinner='rxlib-spinner' />
                     </div>
                     <p className='mt-4 text-muted text-center'>
-                        © 2020-2022 {obterVersao()}
+                        © 2022 {obterVersao()}
                         <span className='rxlib-homologacao'>
                             {obterAmbiente()}
                         </span>

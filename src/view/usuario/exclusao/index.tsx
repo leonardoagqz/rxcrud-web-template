@@ -9,7 +9,11 @@ import { RxlibLayout } from '../../../rxlib/componentes/layout/rxlib-Layout';
 import { ModalWarning } from '../../../rxlib/componentes/modal/modal-warning';
 import { ModalPrimary } from '../../../rxlib/componentes/modal/modal-primary';
 import { ApiError, ExclusaoProps, FormExclusao } from '../../../services/tipos';
-import { Breadcrumb, BreadcrumbItem } from '../../../rxlib/componentes/breadcrumb';
+
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+} from 'rxlib-react';
 
 function UsuarioExclusao(props: ExclusaoProps) {
     const [excluido, setExcluido] = useState<boolean>(false);

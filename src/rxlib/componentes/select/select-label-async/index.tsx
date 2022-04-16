@@ -1,13 +1,14 @@
 /* rxlib - SelectLabelAsync v1.1.11 */
 
 import { AxiosError } from 'axios';
-import { Spinner } from '../../spinner';
+import { Spinner } from 'rxlib-react';
+import { ButtonLink } from 'rxlib-react';
 import api from '../../../../services/api';
 import AsyncSelect from 'react-select/async';
 import React, { useEffect, useState } from 'react';
 import { ApiError } from '../../../../services/tipos';
-import { ButtonLink } from '../../buttons/button-link';
 import { ModalWarning } from '../../modal/modal-warning';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { tratarErroApi } from '../../../services/utilitarios';
 import { ActionMeta, GroupTypeBase, OptionsType, StylesConfig } from 'react-select';
 
@@ -226,7 +227,7 @@ export function SelectLabelAsync(props: SelectLabelAsyncProps) {
     }, [props.type, props.valorSelecionado, selectIsMulti]);
 
     const LoadingIndicator = () => {
-        return <Spinner classStyle='rxlib-spinner-select' />
+        return <Spinner classStyle='rxlib-spinner' classNameSpinner='rxlib-spinner-select' />
     };
 
     const onChange = (value: SelectValue | OptionsType<SelectValue> | null, action: ActionMeta<SelectValue>) => {
@@ -381,9 +382,10 @@ export function SelectLabelAsync(props: SelectLabelAsyncProps) {
                         props.usarAtalhoParaCadastro
                             ? <ButtonLink
                                 abrirNovaJanela={true}
+                                classStyle='btn-rxlib'
+                                fontAwesomeIcon={faPlus}
                                 className='btn-link-select'
                                 texto='Atalho para cadastro'
-                                classIcone='fas fa-plus fs-3'
                                 link={
                                     props.linkAtalho
                                         ? props.linkAtalho

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { CSVLink } from 'react-csv';
-import { Button } from '../buttons/button';
+import { Button } from 'rxlib-react';
 import { TipoColunaTabela } from '../../../services/config';
 import { ButtonTableOrder } from '../buttons/button-table-order';
 import { formatarPorTipo, obterIdButton } from '../../services/utilitarios';
@@ -320,6 +320,7 @@ export function Table(props: TableProps) {
                         <Button
                             type='button'
                             texto='Exportar CSV'
+                            classStyle='btn-rxlib'
                             className='rxlib-btn-csv-table' />
                     </CSVLink>
                     : ''

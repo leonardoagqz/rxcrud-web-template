@@ -1,10 +1,13 @@
 /* rxlib - Listagem v1.1.3 */
 
-import { Spinner } from '../../spinner';
+import { Spinner } from 'rxlib-react';
 import { Paginacao } from '../../paginacao';
-import { Button } from '../../buttons/button';
-import { ButtonLink } from '../../buttons/button-link';
 import { Table, AcoesTabela, ConfiguracoesTabela } from '../../table';
+
+import {
+    Button,
+    ButtonLink
+} from 'rxlib-react';
 
 interface ListagemProps {
     campoId: string;
@@ -60,13 +63,15 @@ export function Listagem(props: ListagemProps) {
                                 ? ''
                                 : <ButtonLink
                                     texto='Novo'
-                                    link={props.linkNovo} />
+                                    link={props.linkNovo}
+                                    classStyle='btn-rxlib' />
                             : props.onNovo
                                 ? props.carregando
                                     ? ''
                                     : (props.idEntidadePai !== '')
                                         ? <Button
                                             texto='Novo'
+                                            classStyle='btn-rxlib'
                                             onClick={props.onNovo}
                                             type={props.tipoBotaoAcao} />
                                         : ''
@@ -78,8 +83,9 @@ export function Listagem(props: ListagemProps) {
                 {
                     props.carregando
                         ? <Spinner
-                            classStyle='mt-4 mb-4'
-                            className={props.listagemDetalhe ? 'mb-3' : ''} />
+                            classStyle='rxlib-spinner'
+                            classNameSpinner='mt-4 mb-4'
+                            classNameDiv={props.listagemDetalhe ? 'mb-3' : ''} />
                         : <Table
                             tableDetalhe={false}
                             campoId={props.campoId}

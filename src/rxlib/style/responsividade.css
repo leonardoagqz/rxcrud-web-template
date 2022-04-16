@@ -1,101 +1,131 @@
-/* rxlib - Responsividade v1.1.0 */
+/* rxlib - Responsividade v1.1.1 */
 
 @media (min-width: 397px) and (max-width: 471px) {
+
     /* font-size */
     body {
         font-size: 0.70rem;
     }
+
     .btn {
         font-size: 0.70rem;
         padding: .375rem .40rem;
     }
+
     .dropdown-menu {
         font-size: 0.70rem;
     }
+
     .form-control {
         font-size: 0.70rem;
     }
+
     .form-select {
         font-size: 0.70rem;
     }
+
     .rxlib-developer-by {
         font-size: 0.70rem;
     }
+
     /* navbar-top */
     .rxlib-navbar-nav {
         width: 5rem;
     }
+
     .navbar-nav {
         flex-direction: row;
     }
+
     .rxlib-sair {
         margin-left: 2rem;
     }
+
     .navbar-collapse {
         width: 65%;
     }
+
     .navbar-nav .dropdown-menu {
         position: absolute;
     }
+
     .nav-item {
         margin-right: 10px;
     }
+
     .collapse:not(.show) {
         display: initial;
     }
+
     .navbar-toggler {
         display: none;
     }
+
     .rxlib-usuario-logado-navbar {
         display: none;
     }
+
     /* rxlib-select-label-async */
     .rxlib-select-label-async {
         width: 100% !important;
     }
+
     .rxlib-select-label-async-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label-async-input input {
         width: 41%;
     }
+
     .rxlib-select-label-async-coluna .rxlib-select-label-async-input input {
         width: 15%;
     }
+
     .rxlib-select__control {
         height: 1.8rem !important;
         min-height: 1.8rem !important;
     }
+
     .rxlib-select__single-value {
         top: 41% !important;
     }
+
     .btn-link-select {
         width: 2.4rem;
         height: 2rem;
     }
+
     .btn-link-select .fs-3 {
         font-size: calc(1.17rem + .6vw) !important;
     }
+
     /* rxlib-input */
     .rxlib-input-label {
         width: 100% !important;
     }
+
     .rxlib-input-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label {
         width: 100% !important;
     }
+
     .rxlib-select-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-perfil {
         width: 100% !important;
     }
+
     /* rxlib-table */
     .rxlib-coluna-tabela {
         display: none;
     }
+
     /* rxlib-button-crud */
     .rxlib-button-crud {
         width: 20% !important;
@@ -103,96 +133,125 @@
 }
 
 @media (min-width: 472px) and (max-width: 547px) {
+
     /* font-size */
     body {
         font-size: 0.70rem;
     }
+
     .btn {
         font-size: 0.70rem;
     }
+
     .dropdown-menu {
         font-size: 0.70rem;
     }
+
     .form-control {
         font-size: 0.70rem;
     }
+
     .form-select {
         font-size: 0.70rem;
     }
+
     .rxlib-developer-by {
         font-size: 0.70rem;
     }
+
     /* navbar-top */
     .rxlib-navbar-nav {
         width: 5rem;
     }
+
     .navbar-nav {
         flex-direction: row;
     }
+
     .rxlib-sair {
         margin-left: 1rem;
     }
+
     .navbar-collapse {
         width: 70%;
     }
+
     .navbar-nav .dropdown-menu {
         position: absolute;
     }
+
     .nav-item {
         margin-right: 10px;
     }
+
     .collapse:not(.show) {
         display: initial;
     }
+
     .navbar-toggler {
         display: none;
     }
+
     .rxlib-usuario-logado-navbar {
         display: none;
     }
+
     /* rxlib-select-label-async */
     .rxlib-select-label-async {
         width: 100% !important;
     }
+
     .rxlib-select-label-async-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label-async-input input {
         width: 41%;
     }
+
     .rxlib-select-label-async-coluna .rxlib-select-label-async-input input {
         width: 16%;
     }
+
     .rxlib-select__control {
         height: 1.8rem !important;
         min-height: 1.8rem !important;
     }
+
     .rxlib-select__single-value {
         top: 41% !important;
     }
+
     .btn-link-select {
         width: 2.4rem;
         height: 2rem;
     }
+
     .btn-link-select .fs-3 {
         font-size: calc(1.15rem + .6vw) !important;
     }
+
     /* rxlib-input */
     .rxlib-input-label {
         width: 100% !important;
     }
+
     .rxlib-input-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label {
         width: 100% !important;
     }
+
     .rxlib-select-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-perfil {
         width: 100% !important;
     }
+
     /* rxlib-table */
     .rxlib-coluna-tabela {
         display: none;
@@ -200,96 +259,125 @@
 }
 
 @media (min-width: 548px) and (max-width: 599px) {
+
     /* font-size */
     body {
         font-size: 0.85rem;
     }
+
     .btn {
         font-size: 0.85rem;
     }
+
     .dropdown-menu {
         font-size: 0.85rem;
     }
+
     .form-control {
         font-size: 0.85rem;
     }
+
     .form-select {
         font-size: 0.85rem;
     }
+
     .rxlib-developer-by {
         font-size: 0.85rem;
     }
+
     /* navbar-top */
     .rxlib-navbar-nav {
         width: 5rem;
     }
+
     .navbar-nav {
         flex-direction: row;
     }
+
     .rxlib-sair {
         margin-left: 1rem;
     }
+
     .navbar-collapse {
         width: 75%;
     }
+
     .navbar-nav .dropdown-menu {
         position: absolute;
     }
+
     .nav-item {
         margin-right: 10px;
     }
+
     .collapse:not(.show) {
         display: initial;
     }
+
     .navbar-toggler {
         display: none;
     }
+
     .rxlib-usuario-logado-navbar {
         display: none;
     }
+
     /* rxlib-select-label-async */
     .rxlib-select-label-async {
         width: 70% !important;
     }
+
     .rxlib-select-label-async-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label-async-input input {
         width: 43%;
     }
+
     .rxlib-select-label-async-coluna .rxlib-select-label-async-input input {
         width: 18%;
     }
+
     .rxlib-select__control {
         height: 2rem !important;
         min-height: 2rem !important;
     }
+
     .rxlib-select__single-value {
         top: 41% !important;
     }
+
     .btn-link-select {
         width: 2.6rem;
         height: 2.2rem;
     }
+
     .btn-link-select .fs-3 {
         font-size: calc(1.25rem + .6vw) !important;
     }
+
     /* rxlib-input */
     .rxlib-input-label {
         width: 70% !important;
     }
+
     .rxlib-input-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label {
         width: 70% !important;
     }
+
     .rxlib-select-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-perfil {
         width: 70% !important;
     }
+
     /* rxlib-table */
     .rxlib-coluna-tabela {
         display: none;
@@ -297,93 +385,121 @@
 }
 
 @media (min-width: 600px) and (max-width: 663px) {
+
     /* font-size */
     body {
         font-size: 0.95rem;
     }
+
     .btn {
         font-size: 0.95rem;
     }
+
     .dropdown-menu {
         font-size: 0.95rem;
     }
+
     .form-control {
         font-size: 0.95rem;
     }
+
     .form-select {
         font-size: 0.95rem;
     }
+
     /* navbar-top */
     .rxlib-navbar-nav {
         width: 5rem;
     }
+
     .navbar-nav {
         flex-direction: row;
     }
+
     .rxlib-sair {
         margin-left: 1rem;
     }
+
     .navbar-collapse {
         width: 75%;
     }
+
     .navbar-nav .dropdown-menu {
         position: absolute;
     }
+
     .nav-item {
         margin-right: 10px;
     }
+
     .collapse:not(.show) {
         display: initial;
     }
+
     .navbar-toggler {
         display: none;
     }
+
     .rxlib-usuario-logado-navbar {
         display: none;
     }
+
     /* rxlib-select-label-async */
     .rxlib-select-label-async {
         width: 70% !important;
     }
+
     .rxlib-select-label-async-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label-async-input input {
         width: 43%;
     }
+
     .rxlib-select-label-async-coluna .rxlib-select-label-async-input input {
         width: 19%;
     }
+
     .rxlib-select__control {
         height: 2.1rem !important;
         min-height: 2.1rem !important;
     }
+
     .rxlib-select__single-value {
         top: 46% !important;
     }
+
     .btn-link-select {
         width: 2.6rem;
         height: 2.2rem;
     }
+
     .btn-link-select .fs-3 {
         font-size: calc(1.25rem + .6vw) !important;
     }
+
     /* rxlib-input */
     .rxlib-input-label {
         width: 70% !important;
     }
+
     .rxlib-input-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label {
         width: 70% !important;
     }
+
     .rxlib-select-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-perfil {
         width: 70% !important;
     }
+
     /* rxlib-table */
     .rxlib-coluna-tabela {
         display: none;
@@ -391,93 +507,121 @@
 }
 
 @media (min-width: 664px) and (max-width: 743px) {
+
     /* font-size */
     body {
         font-size: 0.95rem;
     }
+
     .btn {
         font-size: 0.95rem;
     }
+
     .dropdown-menu {
         font-size: 0.95rem;
     }
+
     .form-control {
         font-size: 0.95rem;
     }
+
     .form-select {
         font-size: 0.95rem;
     }
+
     /* navbar-top */
     .rxlib-navbar-nav {
         width: 5rem;
     }
+
     .navbar-nav {
         flex-direction: row;
     }
+
     .rxlib-sair {
         margin-left: 1rem;
     }
+
     .navbar-collapse {
         width: 80%;
     }
+
     .navbar-nav .dropdown-menu {
         position: absolute;
     }
+
     .nav-item {
         margin-right: 10px;
     }
+
     .collapse:not(.show) {
         display: initial;
     }
+
     .navbar-toggler {
         display: none;
     }
+
     .rxlib-usuario-logado-navbar {
         display: none;
     }
+
     /* rxlib-select-label-async */
     .rxlib-select-label-async {
         width: 70% !important;
     }
+
     .rxlib-select-label-async-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label-async-input input {
         width: 43%;
     }
+
     .rxlib-select-label-async-coluna .rxlib-select-label-async-input input {
         width: 20%;
     }
+
     .rxlib-select__control {
         height: 2.1rem !important;
         min-height: 2.1rem !important;
     }
+
     .rxlib-select__single-value {
         top: 46% !important;
     }
+
     .btn-link-select {
         width: 2.6rem;
         height: 2.2rem;
     }
+
     .btn-link-select .fs-3 {
         font-size: calc(1.1rem + .6vw) !important;
     }
+
     /* rxlib-input */
     .rxlib-input-label {
         width: 70% !important;
     }
+
     .rxlib-input-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label {
         width: 70% !important;
     }
+
     .rxlib-select-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-perfil {
         width: 70% !important;
     }
+
     /* rxlib-table */
     .rxlib-coluna-tabela {
         display: none;
@@ -485,90 +629,117 @@
 }
 
 @media (min-width: 744px) and (max-width: 759px) {
+
     /* font-size */
     body {
         font-size: 0.95rem;
     }
+
     .btn {
         font-size: 0.95rem;
     }
+
     .dropdown-menu {
         font-size: 0.95rem;
     }
+
     .form-control {
         font-size: 0.95rem;
     }
+
     .form-select {
         font-size: 0.95rem;
     }
+
     /* navbar-top */
     .rxlib-navbar-nav {
         width: 19rem;
     }
+
     .navbar-nav {
         flex-direction: row;
     }
+
     .rxlib-sair {
         margin-left: 1rem;
     }
+
     .navbar-collapse {
         width: 47%;
     }
+
     .navbar-nav .dropdown-menu {
         position: absolute;
     }
+
     .nav-item {
         margin-right: 10px;
     }
+
     .collapse:not(.show) {
         display: initial;
     }
+
     .navbar-toggler {
         display: none;
     }
+
     /* rxlib-select-label-async */
     .rxlib-select-label-async {
         width: 60% !important;
     }
+
     .rxlib-select-label-async-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label-async-input input {
         width: 43%;
     }
+
     .rxlib-select-label-async-coluna .rxlib-select-label-async-input input {
         width: 22%;
     }
+
     .rxlib-select__control {
         height: 2.1rem !important;
         min-height: 2.1rem !important;
     }
+
     .rxlib-select__single-value {
         top: 46% !important;
     }
+
     .btn-link-select {
         width: 2.6rem;
         height: 2.2rem;
     }
+
     .btn-link-select .fs-3 {
         font-size: calc(1.1rem + .6vw) !important;
     }
+
     /* rxlib-input */
     .rxlib-input-label {
         width: 60% !important;
     }
+
     .rxlib-input-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label {
         width: 60% !important;
     }
+
     .rxlib-select-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-perfil {
         width: 60% !important;
     }
+
     /* rxlib-table */
     .rxlib-coluna-tabela {
         display: none;
@@ -576,308 +747,399 @@
 }
 
 @media (min-width: 760px) and (max-width: 846px) {
+
     /* font-size */
     body {
         font-size: 0.95rem;
     }
+
     .btn {
         font-size: 0.95rem;
     }
+
     .dropdown-menu {
         font-size: 0.95rem;
     }
+
     .form-control {
         font-size: 0.95rem;
     }
+
     .form-select {
         font-size: 0.95rem;
     }
+
     /* navbar-top */
     .rxlib-navbar-nav {
         width: 20rem;
     }
+
     .navbar-nav {
         flex-direction: row;
     }
+
     .rxlib-sair {
         margin-left: 1rem;
     }
+
     .navbar-collapse {
         width: 50%;
     }
+
     .navbar-nav .dropdown-menu {
         position: absolute;
     }
+
     .nav-item {
         margin-right: 10px;
     }
+
     .collapse:not(.show) {
         display: initial;
     }
+
     .navbar-toggler {
         display: none;
     }
+
     /* rxlib-select-label-async */
     .rxlib-select-label-async {
         width: 60% !important;
     }
+
     .rxlib-select-label-async-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label-async-input input {
         width: 43%;
     }
+
     .rxlib-select-label-async-coluna .rxlib-select-label-async-input input {
         width: 22%;
     }
+
     .rxlib-select__control {
         height: 2.1rem !important;
         min-height: 2.1rem !important;
     }
+
     .rxlib-select__single-value {
         top: 46% !important;
     }
+
     .btn-link-select {
         width: 2.6rem;
         height: 2.2rem;
     }
+
     .btn-link-select .fs-3 {
         font-size: calc(1.1rem + .6vw) !important;
     }
+
     /* rxlib-input */
     .rxlib-input-label {
         width: 60% !important;
     }
+
     .rxlib-input-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label {
         width: 60% !important;
     }
+
     .rxlib-select-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-perfil {
         width: 60% !important;
     }
 }
 
 @media (min-width: 847px) and (max-width: 881px) {
+
     /* font-size */
     body {
         font-size: 0.95rem;
     }
+
     .btn {
         font-size: 0.95rem;
     }
+
     .dropdown-menu {
         font-size: 0.95rem;
     }
+
     .form-control {
         font-size: 0.95rem;
     }
+
     .form-select {
         font-size: 0.95rem;
     }
+
     /* navbar-top */
     .rxlib-navbar-nav {
         width: 20rem;
     }
+
     .navbar-nav {
         flex-direction: row;
     }
+
     .rxlib-sair {
         margin-left: 1rem;
     }
+
     .navbar-collapse {
         width: 50%;
     }
+
     .navbar-nav .dropdown-menu {
         position: absolute;
     }
+
     .nav-item {
         margin-right: 10px;
     }
+
     .collapse:not(.show) {
         display: initial;
     }
+
     .navbar-toggler {
         display: none;
     }
+
     /* rxlib-select-label-async */
     .rxlib-select-label-async {
         width: 60% !important;
     }
+
     .rxlib-select-label-async-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label-async-input input {
         width: 44%;
     }
+
     .rxlib-select-label-async-coluna .rxlib-select-label-async-input input {
         width: 23.5%;
     }
+
     .rxlib-select__control {
         height: 2.1rem !important;
         min-height: 2.1rem !important;
     }
+
     .rxlib-select__single-value {
         top: 46% !important;
     }
+
     .btn-link-select {
         width: 2.6rem;
         height: 2.2rem;
     }
+
     .btn-link-select .fs-3 {
         font-size: calc(1.1rem + .6vw) !important;
     }
+
     /* rxlib-input */
     .rxlib-input-label {
         width: 60% !important;
     }
+
     .rxlib-input-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label {
         width: 60% !important;
     }
+
     .rxlib-select-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-perfil {
         width: 60% !important;
     }
 }
 
 @media (min-width: 882px) and (max-width: 935px) {
+
     /* navbar-top */
     .rxlib-navbar-nav {
         width: 20rem;
     }
+
     .navbar-nav {
         flex-direction: row;
     }
+
     .rxlib-sair {
         margin-left: 1rem;
     }
+
     .navbar-collapse {
         width: 50%;
     }
+
     .navbar-nav .dropdown-menu {
         position: absolute;
     }
+
     .nav-item {
         margin-right: 10px;
     }
+
     .collapse:not(.show) {
         display: initial;
     }
+
     .navbar-toggler {
         display: none;
     }
+
     /* rxlib-select-label-async */
     .rxlib-select-label-async {
         width: 60% !important;
     }
+
     .rxlib-select-label-async-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label-async-input input {
         width: 44%;
     }
+
     .rxlib-select-label-async-coluna .rxlib-select-label-async-input input {
         width: 23.5%;
     }
+
     .rxlib-select__control {
         height: 2.2rem !important;
         min-height: 2.2rem !important;
     }
+
     .rxlib-select__single-value {
         top: 46% !important;
     }
+
     /* rxlib-input */
     .rxlib-input-label {
         width: 60% !important;
     }
+
     .rxlib-input-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-label {
         width: 60% !important;
     }
+
     .rxlib-select-label-coluna {
         width: 100% !important;
     }
+
     .rxlib-select-perfil {
         width: 60% !important;
     }
 }
 
 @media (min-width: 936px) and (max-width: 943px) {
+
     /* navbar-top */
     .rxlib-navbar-nav {
         width: 20rem;
     }
+
     .navbar-nav {
         flex-direction: row;
     }
+
     .rxlib-sair {
         margin-left: 1rem;
     }
+
     .navbar-collapse {
         width: 55%;
     }
+
     .navbar-nav .dropdown-menu {
         position: absolute;
     }
+
     .nav-item {
         margin-right: 10px;
     }
+
     .collapse:not(.show) {
         display: initial;
     }
+
     .navbar-toggler {
         display: none;
     }
+
     /* rxlib-select-label-async */
     .rxlib-select-label-async-coluna .rxlib-select-label-async-input input {
         width: 24%;
     }
+
     .rxlib-select__control {
         height: 2.2rem !important;
         min-height: 2.2rem !important;
     }
+
     .rxlib-select__single-value {
         top: 46% !important;
     }
 }
 
 @media (min-width: 944px) and (max-width: 991px) {
+
     /* navbar-top */
     .rxlib-navbar-nav {
         width: 20rem;
     }
+
     .navbar-nav {
         flex-direction: row;
     }
+
     .rxlib-sair {
         margin-left: 1rem;
     }
+
     .navbar-collapse {
         width: 60%;
     }
+
     .navbar-nav .dropdown-menu {
         position: absolute;
     }
+
     .nav-item {
         margin-right: 10px;
     }
+
     .collapse:not(.show) {
         display: initial;
     }
+
     .navbar-toggler {
         display: none;
     }
+
     /* rxlib-select-label-async */
     .rxlib-select-label-async-coluna .rxlib-select-label-async-input input {
         width: 24%;
@@ -885,31 +1147,40 @@
 }
 
 @media (min-width: 992px) and (max-width: 1062px) {
+
     /* navbar-top */
     .rxlib-navbar-nav {
         width: 28rem;
     }
+
     .navbar-nav {
         flex-direction: row;
     }
+
     .rxlib-sair {
         margin-left: 1rem;
     }
+
     .navbar-collapse {
         width: 78%;
     }
+
     .navbar-nav .dropdown-menu {
         position: absolute;
     }
+
     .nav-item {
         margin-right: 10px;
     }
+
     .collapse:not(.show) {
         display: initial;
     }
+
     .navbar-toggler {
         display: none;
     }
+
     /* rxlib-select-label-async */
     .rxlib-select-label-async-coluna .rxlib-select-label-async-input input {
         width: 24.5%;

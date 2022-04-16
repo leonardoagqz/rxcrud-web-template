@@ -1,7 +1,9 @@
 /* rxlib - Exclusao v1.1.0 */
 
-import { Button } from '../../buttons/button';
-import { ButtonLink } from '../../buttons/button-link';
+import {
+    Button,
+    ButtonLink
+} from 'rxlib-react';
 
 interface ExclusaoProps {
     titulo: string;
@@ -30,6 +32,7 @@ export function Exclusao(props: ExclusaoProps) {
                             <Button
                                 type='submit'
                                 texto='Excluir'
+                                classStyle='btn-rxlib'
                                 carregando={props.carregando} />
                         </div>
                         {
@@ -39,11 +42,13 @@ export function Exclusao(props: ExclusaoProps) {
                                         ((props.linkCancelar) && (props.linkCancelar !== ''))
                                             ? <ButtonLink
                                                 texto='Cancelar'
+                                                classStyle='btn-rxlib'
                                                 link={props.linkCancelar} />
                                             : (!!props.onCancelar)
                                                 ? <Button
                                                     type='button'
                                                     texto='Cancelar'
+                                                    classStyle='btn-rxlib'
                                                     onClick={props.onCancelar} />
                                                 : ''
                                     }

@@ -6,8 +6,12 @@ import { Listagem } from '../../../rxlib/componentes/layout/listagem';
 import { ConfiguracoesTabela } from '../../../rxlib/componentes/table';
 import { RxlibLayout } from '../../../rxlib/componentes/layout/rxlib-Layout';
 import { ModalWarning } from '../../../rxlib/componentes/modal/modal-warning';
-import { Breadcrumb, BreadcrumbItem } from '../../../rxlib/componentes/breadcrumb';
 import { obterQuantidadeParaPular, tratarErroApi } from '../../../rxlib/services/utilitarios';
+
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+} from 'rxlib-react';
 
 function UsuarioListagem(props: ListagemProps) {
     const [usuarios, setUsuarios] = useState<[{}]>([{}]);

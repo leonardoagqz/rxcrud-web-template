@@ -8,9 +8,13 @@ import { ApiError, CadastroProps, Usuario } from '../../../services/tipos';
 import { RxlibLayout } from '../../../rxlib/componentes/layout/rxlib-Layout';
 import { ModalPrimary } from '../../../rxlib/componentes/modal/modal-primary';
 import { ModalWarning } from '../../../rxlib/componentes/modal/modal-warning';
-import { ButtonsCrud } from '../../../rxlib/componentes/buttons/buttons-crud';
-import { Breadcrumb, BreadcrumbItem } from '../../../rxlib/componentes/breadcrumb';
 import { criptografar, descriptografar, tratarErroApi } from '../../../rxlib/services/utilitarios';
+
+import {
+    Breadcrumb,
+    ButtonsCrud,
+    BreadcrumbItem,
+} from 'rxlib-react';
 
 function UsuarioCadastro(props: CadastroProps) {
     const [salvo, setSalvo] = useState<boolean>(false);
@@ -106,7 +110,7 @@ function UsuarioCadastro(props: CadastroProps) {
                     <div className='container-fluid'>
                         <div className='row px-1'>
                             <div className='col-12'>
-                                <h6>{props.match.params.action ? 'Visualizar' : props.match.params.id ? 'Editar' : 'Novo'} usuario de usuário</h6>
+                                <h6>{props.match.params.action ? 'Visualizar' : props.match.params.id ? 'Editar' : 'Novo'} usuário</h6>
                             </div>
                         </div>
                         {
@@ -189,9 +193,10 @@ function UsuarioCadastro(props: CadastroProps) {
                             </div>
                         </div>
                         <ButtonsCrud
+                            styleButton='btn-rxlib'
                             carregando={carregando}
                             linkCancelarVoltar='/usuario'
-                            action={props.match.params.action} />
+                            visualizar={props.match.params.action === 'view'} />
                     </div>
                 </form>
 
