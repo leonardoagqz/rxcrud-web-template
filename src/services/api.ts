@@ -2,9 +2,7 @@ import axios from 'axios';
 import { store } from '../store';
 
 const api = axios.create({
-    baseURL: process.env.REACT_APP_API_URL
-        ? process.env.REACT_APP_API_URL
-        : 'https://rxcrud-api-template.herokuapp.com/'
+    baseURL: process.env.REACT_APP_API_URL,
 });
 
 const { dispatch } = store;

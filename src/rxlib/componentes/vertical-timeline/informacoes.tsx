@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Modal } from 'react-bootstrap';
-import { TextareaLabel } from '../textarea-label';
+import { TextareaLabel } from 'rxlib-react';
 
 interface InformacoesProps {
     show: boolean;
@@ -28,16 +28,16 @@ export function Informacoes(props: InformacoesProps) {
                             <div className='col-12 mt-1'>
                                 <TextareaLabel
                                     rows={10}
-                                    foco='sim'
                                     name='dados'
-                                    action='view'
+                                    size='coluna'
                                     label='Dados:'
+                                    readOnly={true}
                                     id='inputDados'
+                                    autoFocus={true}
                                     maxLength={2000}
                                     placeholder='Dados'
                                     defaultValue={props.dados}
-                                    referencia={React.createRef()}
-                                    className='rxlib-textarea-label-coluna' />
+                                    referencia={React.createRef()} />
                             </div>
                         </div>
                     </div>

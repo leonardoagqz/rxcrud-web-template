@@ -2,8 +2,7 @@ import { AxiosError } from 'axios';
 import api from '../../../services/api';
 import { useState, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { InputLabel } from '../../../rxlib/componentes/input-label';
-import { Redirecionar } from '../../../rxlib/componentes/redirecionar';
+import Redirecionar from '../../../components/redirecionar';
 import { ApiError, CadastroProps, Usuario } from '../../../services/tipos';
 import { RxlibLayout } from '../../../rxlib/componentes/layout/rxlib-Layout';
 import { ModalPrimary } from '../../../rxlib/componentes/modal/modal-primary';
@@ -12,6 +11,7 @@ import { criptografar, descriptografar, tratarErroApi } from '../../../rxlib/ser
 
 import {
     Breadcrumb,
+    InputLabel,
     ButtonsCrud,
     BreadcrumbItem,
 } from 'rxlib-react';
@@ -119,12 +119,12 @@ function UsuarioCadastro(props: CadastroProps) {
                                     <div className='col-12 mt-1'>
                                         <InputLabel
                                             name='id'
-                                            foco='nao'
                                             type='text'
                                             id='inputId'
-                                            action='view'
                                             maxLength={50}
                                             label='Código:'
+                                            readOnly={true}
+                                            autoFocus={false}
                                             defaultValue={usuario.id}
                                             placeholder='Código do usuário'
                                             referencia={register({ required: true })} />
@@ -135,61 +135,61 @@ function UsuarioCadastro(props: CadastroProps) {
                         <div className='row px-1'>
                             <div className='col-12 mt-1'>
                                 <InputLabel
-                                    foco='sim'
                                     name='nome'
                                     type='text'
                                     label='Nome:'
                                     id='inputNome'
                                     maxLength={50}
+                                    autoFocus={true}
                                     defaultValue={usuario.nome}
                                     placeholder='Nome do usuário'
-                                    action={props.match.params.action}
-                                    referencia={register({ required: true })} />
+                                    referencia={register({ required: true })}
+                                    readOnly={props.match.params.action === 'view'} />
                             </div>
                         </div>
                         <div className='row px-1'>
                             <div className='col-12 mt-1'>
                                 <InputLabel
-                                    foco='nao'
                                     name='email'
                                     type='email'
                                     id='inputEmail'
                                     label='E-mail:'
                                     maxLength={100}
+                                    autoFocus={false}
                                     defaultValue={usuario.email}
                                     placeholder='E-mail do usuário'
-                                    action={props.match.params.action}
-                                    referencia={register({ required: true })} />
+                                    referencia={register({ required: true })}
+                                    readOnly={props.match.params.action === 'view'} />
                             </div>
                         </div>
                         <div className='row px-1'>
                             <div className='col-12 mt-1'>
                                 <InputLabel
-                                    foco='nao'
                                     type='text'
                                     maxLength={50}
                                     label='Usuário:'
+                                    autoFocus={false}
                                     name='nomeAcesso'
                                     id='inputNomeAcesso'
                                     placeholder='Usuário'
                                     defaultValue={usuario.nomeAcesso}
-                                    action={props.match.params.action}
-                                    referencia={register({ required: true })} />
+                                    referencia={register({ required: true })}
+                                    readOnly={props.match.params.action === 'view'} />
                             </div>
                         </div>
                         <div className='row px-1'>
                             <div className='col-12 mt-1'>
                                 <InputLabel
-                                    foco='nao'
                                     name='senha'
                                     label='Senha:'
                                     maxLength={50}
                                     id='inputSenha'
                                     type='password'
+                                    autoFocus={false}
                                     defaultValue={usuario.senha}
                                     placeholder='Senha do usuário'
-                                    action={props.match.params.action}
-                                    referencia={register({ required: true })} />
+                                    referencia={register({ required: true })}
+                                    readOnly={props.match.params.action === 'view'} />
                             </div>
                         </div>
                         <ButtonsCrud
@@ -199,21 +199,17 @@ function UsuarioCadastro(props: CadastroProps) {
                             visualizar={props.match.params.action === 'view'} />
                     </div>
                 </form>
-
                 <ModalWarning
                     show={showWarning}
                     message={messageWarning}
                     onHide={handleHideWarning} />
-
                 <ModalPrimary
                     show={showPrimary}
                     message={messagePrimary}
                     onHide={handleHidePrimary} />
-
                 <Redirecionar
                     se={salvo}
                     para='/usuario' />
-
             </RxlibLayout>
         </>
     )

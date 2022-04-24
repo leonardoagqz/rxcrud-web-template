@@ -85,7 +85,6 @@ function Login(props: AcessoProps) {
                     ? showAcessoBloqueado()
                     : ''
             }
-
             <div className='login-content d-flex align-items-center'>
                 <form className='form-signin mx-auto rxlib-login' onSubmit={handleSubmit(onSubmit)}>
                     <div className='text-center rxlib-conteiner-logo'>
@@ -122,7 +121,6 @@ function Login(props: AcessoProps) {
                     </p>
                 </form>
             </div>
-
             <ModalWarning
                 show={showWarning}
                 onHide={handleHide}

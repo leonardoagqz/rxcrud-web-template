@@ -7,11 +7,6 @@
         font-size: 0.70rem;
     }
 
-    .btn {
-        font-size: 0.70rem;
-        padding: .375rem .40rem;
-    }
-
     .dropdown-menu {
         font-size: 0.70rem;
     }
@@ -101,14 +96,6 @@
     }
 
     /* rxlib-input */
-    .rxlib-input-label {
-        width: 100% !important;
-    }
-
-    .rxlib-input-label-coluna {
-        width: 100% !important;
-    }
-
     .rxlib-select-label {
         width: 100% !important;
     }
@@ -136,10 +123,6 @@
 
     /* font-size */
     body {
-        font-size: 0.70rem;
-    }
-
-    .btn {
         font-size: 0.70rem;
     }
 
@@ -232,14 +215,6 @@
     }
 
     /* rxlib-input */
-    .rxlib-input-label {
-        width: 100% !important;
-    }
-
-    .rxlib-input-label-coluna {
-        width: 100% !important;
-    }
-
     .rxlib-select-label {
         width: 100% !important;
     }
@@ -262,10 +237,6 @@
 
     /* font-size */
     body {
-        font-size: 0.85rem;
-    }
-
-    .btn {
         font-size: 0.85rem;
     }
 
@@ -358,14 +329,6 @@
     }
 
     /* rxlib-input */
-    .rxlib-input-label {
-        width: 70% !important;
-    }
-
-    .rxlib-input-label-coluna {
-        width: 100% !important;
-    }
-
     .rxlib-select-label {
         width: 70% !important;
     }
@@ -388,10 +351,6 @@
 
     /* font-size */
     body {
-        font-size: 0.95rem;
-    }
-
-    .btn {
         font-size: 0.95rem;
     }
 
@@ -480,14 +439,6 @@
     }
 
     /* rxlib-input */
-    .rxlib-input-label {
-        width: 70% !important;
-    }
-
-    .rxlib-input-label-coluna {
-        width: 100% !important;
-    }
-
     .rxlib-select-label {
         width: 70% !important;
     }
@@ -510,10 +461,6 @@
 
     /* font-size */
     body {
-        font-size: 0.95rem;
-    }
-
-    .btn {
         font-size: 0.95rem;
     }
 
@@ -602,14 +549,6 @@
     }
 
     /* rxlib-input */
-    .rxlib-input-label {
-        width: 70% !important;
-    }
-
-    .rxlib-input-label-coluna {
-        width: 100% !important;
-    }
-
     .rxlib-select-label {
         width: 70% !important;
     }
@@ -632,10 +571,6 @@
 
     /* font-size */
     body {
-        font-size: 0.95rem;
-    }
-
-    .btn {
         font-size: 0.95rem;
     }
 
@@ -720,14 +655,6 @@
     }
 
     /* rxlib-input */
-    .rxlib-input-label {
-        width: 60% !important;
-    }
-
-    .rxlib-input-label-coluna {
-        width: 100% !important;
-    }
-
     .rxlib-select-label {
         width: 60% !important;
     }
@@ -750,10 +677,6 @@
 
     /* font-size */
     body {
-        font-size: 0.95rem;
-    }
-
-    .btn {
         font-size: 0.95rem;
     }
 
@@ -838,14 +761,6 @@
     }
 
     /* rxlib-input */
-    .rxlib-input-label {
-        width: 60% !important;
-    }
-
-    .rxlib-input-label-coluna {
-        width: 100% !important;
-    }
-
     .rxlib-select-label {
         width: 60% !important;
     }
@@ -863,10 +778,6 @@
 
     /* font-size */
     body {
-        font-size: 0.95rem;
-    }
-
-    .btn {
         font-size: 0.95rem;
     }
 
@@ -951,14 +862,6 @@
     }
 
     /* rxlib-input */
-    .rxlib-input-label {
-        width: 60% !important;
-    }
-
-    .rxlib-input-label-coluna {
-        width: 100% !important;
-    }
-
     .rxlib-select-label {
         width: 60% !important;
     }
@@ -1034,14 +937,6 @@
     }
 
     /* rxlib-input */
-    .rxlib-input-label {
-        width: 60% !important;
-    }
-
-    .rxlib-input-label-coluna {
-        width: 100% !important;
-    }
-
     .rxlib-select-label {
         width: 60% !important;
     }

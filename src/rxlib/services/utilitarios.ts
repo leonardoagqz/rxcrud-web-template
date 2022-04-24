@@ -3,10 +3,10 @@
 import crypto from 'crypto-js';
 import { AxiosError } from 'axios';
 import api from '../../services/api';
+import { maskValue } from 'rxlib-react';
 import { ApiError } from '../../services/tipos';
 import { SecretKey } from '../../services/config';
 import { formatarPorTipoPersonalizado } from '../../services/utilitarios';
-import { maskCep, maskCnpj, maskCpf } from '../componentes/input-label/mask';
 
 export function obterAmbiente(): string {
     let ambiente = '';
@@ -163,14 +163,14 @@ export function descriptografar(texto: string): string {
 
 export function formatarCpfCnpj(cpfCnpj: string): string {
     if (cpfCnpj.length <= 11) {
-        return maskCpf(cpfCnpj);
+        return maskValue(cpfCnpj, 'cpf');
     } else {
-        return maskCnpj(cpfCnpj);
+        return maskValue(cpfCnpj, 'cnpj');
     }
 }
 
 export function formatarCep(cep: string): string {
-    return maskCep(cep);
+    return maskValue(cep, 'cep');
 }
 
 export function formatarCamposPorTipo<Tipo>(data: Tipo, base: Tipo) {

@@ -1,7 +1,8 @@
-# rxcrud-web-template <img alt="rxcrud" height="20" src="https://github.com/rxcrud/rxcrud-web-template/blob/main/src/images/logo.png">
+# rxcrud-web-template <img alt="rxcrud" height="20" src="./src/images/logo.png">
 Template de aplicação para criação de projetos (<a href="https://rxcrud-web-template.herokuapp.com/" target="_blank">Acessar</a>)
 
-![WEB ](https://img.shields.io/badge/WEB-React%20JS-blue) [![rxcrud](https://github.com/rxcrud/rxcrud-web-template/actions/workflows/rxcrud.yml/badge.svg)](https://github.com/rxcrud/rxcrud-web-template/actions/workflows/rxcrud.yml)
+![WEB](https://img.shields.io/badge/WEB-React%20JS-blue)
+[![rxcrud](https://github.com/rxcrud/rxcrud-web-template/actions/workflows/rxcrud.yml/badge.svg)](https://github.com/rxcrud/rxcrud-web-template/actions/workflows/rxcrud.yml)
 
 ## Scripts Disponíveis
 
@@ -42,4 +43,4 @@ npx tsc
 ```
 
 ## ⚠️ Licença
-`rxcrud-web-template` é um template de aplicação para criação de projetos licenciado sob a [MIT License](https://github.com/rxcrud/rxcrud-web-template/blob/main/LICENSE).
+`rxcrud-web-template` é um template de aplicação para criação de projetos licenciado sob a [MIT License](./LICENSE).

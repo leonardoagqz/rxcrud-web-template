@@ -1,8 +1,8 @@
 /* rxlib - TreePermissoes v1.1.0 */
 
 import React from 'react';
-import { Checkbox } from '../checkbox';
 import Tree from 'react-animated-tree';
+import { Checkbox } from 'rxlib-react';
 import { Permissoes, PerfilPermissao, PerfilUsuario } from '../../../services/tipos';
 
 interface TreePermissoesProps {
@@ -39,14 +39,14 @@ export function TreePermissoes(props: TreePermissoesProps) {
                                                 text={permissao.nome}
                                                 name={'permissoes.' + index}
                                                 referencia={React.createRef()}
-                                                checked={!!props.perfilPermissao.find(permissaoPerfil => permissaoPerfil.idPermissao === permissao.id)}
-                                                action={
+                                                defaultChecked={!!props.perfilPermissao.find(permissaoPerfil => permissaoPerfil.idPermissao === permissao.id)}
+                                                disabled={
                                                     props.perfilsUsuario
                                                         .find(perfilUsuario => perfilUsuario.idPerfil === props.idPerfilSelecionao)
-                                                        ? 'view'
+                                                        ? true
                                                         : props.naoPodeEditar
-                                                            ? 'view'
-                                                            : ''
+                                                            ? true
+                                                            : false
                                                 } />
                                         </div>
                                     )
