@@ -32,7 +32,7 @@ function Home(props: AcessoProps) {
                 onHide={handleHide}
                 message={messageWarning} />
         </>
-    )
+    );
 }
 
 export default Home;

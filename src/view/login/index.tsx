@@ -107,8 +107,7 @@ function Login(props: AcessoProps) {
                             texto='Entrar'
                             className='btn-lg'
                             classStyle='btn-rxlib'
-                            carregando={carregando}
-                            classNameDivSpinner='rxlib-spinner' />
+                            carregando={carregando} />
                     </div>
                     <p className='mt-4 text-muted text-center'>
                         © 2022 {obterVersao()}
@@ -126,7 +125,7 @@ function Login(props: AcessoProps) {
                 onHide={handleHide}
                 message={messageWarning} />
         </>
-    )
+    );
 }
 
 export default Login;

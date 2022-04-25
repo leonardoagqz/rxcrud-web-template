@@ -81,7 +81,7 @@ function UsuarioListagem(props: ListagemProps) {
                     message={messageWarning} />
             </RxlibLayout>
         </>
-    )
+    );
 }
 
 export default UsuarioListagem;

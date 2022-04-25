@@ -69,7 +69,7 @@ function UsuarioCadastro(props: CadastroProps) {
         data.senha = criptografar(data.nomeAcesso + data.senha);
         props.match.params.id
             ? editar(data)
-            : salvar(data)
+            : salvar(data);
     }
 
     function salvar(data: Usuario) {
@@ -212,7 +212,7 @@ function UsuarioCadastro(props: CadastroProps) {
                     para='/usuario' />
             </RxlibLayout>
         </>
-    )
+    );
 }
 
 export default UsuarioCadastro;

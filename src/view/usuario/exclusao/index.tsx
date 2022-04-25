@@ -74,7 +74,7 @@ function UsuarioExclusao(props: ExclusaoProps) {
                     para='/usuario' />
             </RxlibLayout>
         </>
-    )
+    );
 }
 
 export default UsuarioExclusao;
