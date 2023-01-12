@@ -21,16 +21,17 @@ export const RequestTypeArray: RequestType[] = [
         fieldValueLowerCase: 'fieldValueLowerCase',
         fieldLabelLowerCase: 'fieldLabelLowerCase',
         url: '/OData/Exemplo?$filter=contains(toupper(nome),toupper(\'selectedValue\'))',
-    },
+    },    
     {
-        type: 'Estado',
         useOdata: true,
+        type: 'Estado',
         fieldValue: 'Id',
-        fieldLabel: 'Nome',
+        fieldLabel: 'Uf',
         fieldValueLowerCase: 'id',
-        fieldLabelLowerCase: 'nome',
-        url: '/OData/Texto?$filter=contains(toupper(nome),toupper(\'selectedValue\'))',
-    },
+        fieldLabelLowerCase: 'uf',
+        url: '/OData/Estado?$filter=contains(toupper(uf),toupper(\'selectedValue\'))',
+    },        
+
 ];
 
 /* RxlibLayout */
@@ -60,6 +61,11 @@ export function montarMenus(token: string, administrador: boolean): Menu {
     item.subItens.push({
         nome: 'Estados',
         link: '/estado',
+    });
+
+    item.subItens.push({
+        nome: 'Cidades',
+        link: '/cidade',
     });
 
     menus.items.push(item);

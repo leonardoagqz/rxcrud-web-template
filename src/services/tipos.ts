@@ -50,6 +50,12 @@ export interface Estado {
     descricao: string;
 }
 
+export interface Cidade {
+    id: string;
+    descricao: string;
+    idEstado: string;
+}
+
 export interface Perfil {
     id: string;
     nome: string;

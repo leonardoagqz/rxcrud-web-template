@@ -15,7 +15,7 @@ import {
     BreadcrumbItem,
 } from 'rxlib-react';
 
-function EstadoExclusao(props: ExclusaoProps) {
+function CidadeExclusao(props: ExclusaoProps) {
     const [excluido, setExcluido] = useState<boolean>(false);
     const [carregando, setCarregando] = useState<boolean>(false);
     const [showWarning, setShowWarning] = useState<boolean>(false);
@@ -34,19 +34,19 @@ function EstadoExclusao(props: ExclusaoProps) {
 
     const breadcrumbs: BreadcrumbItem[] = [
         { texto: 'Home', link: '/home' },
-        { texto: 'Estados', link: '/estado' },
+        { texto: 'Cidades', link: '/cidade' },
         { texto: 'Exclusão', link: '' },
     ];
 
     const onSubmit: SubmitHandler<FormExclusao> = data => {
         setCarregando(true);
-        api.delete(`/Estado/${props.match.params.id}`, data)
+        api.delete(`/Cidade/${props.match.params.id}`, data)
             .then(response => {
-                setMessagePrimary(['Estado excluído com sucesso.']);
+                setMessagePrimary(['Cidade excluído com sucesso.']);
                 setShowPrimary(true);
             }).catch((error: AxiosError<ApiError>) => {
                 setCarregando(false);
-                setMessageWarning(tratarErroApi(error, 'Não foi possível excluir o estado: '));
+                setMessageWarning(tratarErroApi(error, 'Não foi possível excluir a cidade: '));
                 setShowWarning(true);
             });
     }
@@ -57,10 +57,10 @@ function EstadoExclusao(props: ExclusaoProps) {
                 <Breadcrumb
                     itens={breadcrumbs} />
                 <Exclusao
-                    linkCancelar='/estado'
+                    linkCancelar='/cidade'
                     carregando={carregando}
                     onSubmit={handleSubmit(onSubmit)}
-                    titulo='Deseja realmente excluir o estado selecionado?' />
+                    titulo='Deseja realmente excluir a cidade selecionada?' />
                 <ModalWarning
                     show={showWarning}
                     message={messageWarning}
@@ -71,10 +71,10 @@ function EstadoExclusao(props: ExclusaoProps) {
                     onHide={handleHidePrimary} />
                 <Redirecionar
                     se={excluido}
-                    para='/estado' />
+                    para='/cidade' />
             </RxlibLayout>
         </>
     );
 }
 
-export default EstadoExclusao;
+export default CidadeExclusao;
