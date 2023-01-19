@@ -75,7 +75,7 @@ export function SidebarLayout(props: SidebarLayoutProps) {
             {props.children}
 
             <nav className='navbar fixed-bottom rxlib-navbar-footer rxlib-navbar-sidebar-footer'>
-                <span className='text-center rxlib-developer-by'>© 2022 - {obterNomeEmpresa()} - {obterVersao()}
+                <span className='text-center rxlib-developer-by'>© 2023 - {obterNomeEmpresa()} - {obterVersao()}
                     <span className='rxlib-homologacao'>{obterAmbiente()}</span>
                 </span>
             </nav>

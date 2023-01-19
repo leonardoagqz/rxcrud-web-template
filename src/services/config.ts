@@ -23,13 +23,13 @@ export const RequestTypeArray: RequestType[] = [
         url: '/OData/Exemplo?$filter=contains(toupper(nome),toupper(\'selectedValue\'))',
     },
     {
-        type: 'Estado',
         useOdata: true,
+        type: 'Estado',
         fieldValue: 'Id',
-        fieldLabel: 'Nome',
+        fieldLabel: 'Uf',
         fieldValueLowerCase: 'id',
-        fieldLabelLowerCase: 'nome',
-        url: '/OData/Texto?$filter=contains(toupper(nome),toupper(\'selectedValue\'))',
+        fieldLabelLowerCase: 'uf',
+        url: '/OData/Estado?$filter=contains(toupper(uf),toupper(\'selectedValue\'))',
     },
 ];
 
@@ -40,7 +40,6 @@ export const UsarSidebarLayout = false;
 export const SecretKey = '9dec7339f2de4d61';
 export const UsarSidebarBodyGradient = false;
 export const ExibirNomeEmpresaNavbarLayout = false;
-
 
 export function montarMenus(token: string, administrador: boolean): Menu {
     let menus: Menu = {
@@ -60,6 +59,11 @@ export function montarMenus(token: string, administrador: boolean): Menu {
     item.subItens.push({
         nome: 'Estados',
         link: '/estado',
+    });
+
+    item.subItens.push({
+        nome: 'Cidades',
+        link: '/cidade',
     });
 
     menus.items.push(item);

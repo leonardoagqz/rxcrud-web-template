@@ -110,7 +110,7 @@ function Login(props: AcessoProps) {
                             carregando={carregando} />
                     </div>
                     <p className='mt-4 text-muted text-center'>
-                        © 2022 {obterVersao()}
+                        © 2023 {obterVersao()}
                         <span className='rxlib-homologacao'>
                             {obterAmbiente()}
                         </span>

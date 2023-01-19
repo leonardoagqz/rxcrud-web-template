@@ -13,8 +13,8 @@ import {
     BreadcrumbItem,
 } from 'rxlib-react';
 
-function EstadoListagem(props: ListagemProps) {
-    const [estados, setEstados] = useState<[{}]>([{}]);
+function CidadeListagem(props: ListagemProps) {
+    const [cidades, setCidades] = useState<[{}]>([{}]);
     const [carregando, setCarregando] = useState<boolean>(false);
     const [showWarning, setShowWarning] = useState<boolean>(false);
     const [quantidadeTotal, setQuantidadeTotal] = useState<number>(0);
@@ -24,14 +24,13 @@ function EstadoListagem(props: ListagemProps) {
 
     const breadcrumbs: BreadcrumbItem[] = [
         { texto: 'Home', link: '/home' },
-        { texto: 'Estados', link: '' },
+        { texto: 'Cidades', link: '' },
     ];
 
     const configuracoesTabela: ConfiguracoesTabela = {
         mensagemPadrao: 'Não foram encontrados resultados para a consulta.',
         colunas: [
-            { nome: 'UF', campo: 'Uf', tipo: 'string' },
-            { nome: 'Descrição', campo: 'Descricao', tipo: 'string' },
+            { nome: 'Cidade', campo: 'Descricao', tipo: 'string' },
         ],
     }
 
@@ -40,11 +39,11 @@ function EstadoListagem(props: ListagemProps) {
 
     useEffect(() => {
         setCarregando(true);
-        api.get(`/OData/Estado?$count=true&$top=${quantidadeRegistrosPorPagina}&$skip=${quantidadeParaPular}`)
+        api.get(`/OData/Cidade?$count=true&$top=${quantidadeRegistrosPorPagina}&$skip=${quantidadeParaPular}`)
             .then(response => {
                 setTimeout(() => {
                     setQuantidadeTotal(response.data['@odata.count']);
-                    setEstados(response.data.value);
+                    setCidades(response.data.value);
                     setCarregando(false);
                 }, 250);
             }).catch((error: AxiosError<ApiError>) => {
@@ -61,16 +60,16 @@ function EstadoListagem(props: ListagemProps) {
                     itens={breadcrumbs} />
                 <Listagem
                     campoId='Id'
-                    fonteDados={estados}
+                    fonteDados={cidades}
                     tipoBotaoAcao='button'
-                    linkListagem='/estado'
+                    linkListagem='/cidade'
+                    linkNovo='/cidade/novo'
                     listagemDetalhe={false}
                     carregando={carregando}
-                    linkNovo='/estado/novo'
-                    linkEdicao='/estado/editar'
-                    linkExclusao='/estado/exclusao'
-                    descricao='Listagem de estados'
-                    linkVisualizacao='/estado/visualizar'
+                    linkEdicao='/cidade/editar'
+                    descricao='Listagem de cidades'
+                    linkExclusao='/cidade/exclusao'
+                    linkVisualizacao='/cidade/visualizar'
                     configuracoesTabela={configuracoesTabela}
                     quantidadeTotalRegistros={quantidadeTotal}
                     paginaAtual={parseInt(props.match.params.pagina)}
@@ -84,4 +83,4 @@ function EstadoListagem(props: ListagemProps) {
     );
 }
 
-export default EstadoListagem;
+export default CidadeListagem;
